@@ -1,69 +1,112 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+@section('top-banner')
+    <!-- Page Header Start -->
+    <div class="page-header" style="background: url(img/banner1.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">My Account</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="#"><i class="ti-home"></i> Home</a></li>
+                            <li class="current">My Account</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- Page Header End -->
+@endsection
+
+@section('content')
+    <div id="content" class="my-account">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-6 cd-user-modal">
+                    <div class="my-account-form">
+                        <ul class="cd-switcher">
+                            <li><a class="selected" href="#0">LOGIN</a></li>
+                            <li><a href="#0">REGITER</a></li>
+                        </ul>
+
+                        <div id="cd-login" class="is-selected">
+                            <div class="page-login-form">
+                                <form role="form" class="login-form">
+                                    <div class="form-group is-empty">
+                                        <div class="input-icon">
+                                            <i class="ti-user"></i>
+                                            <input type="text" id="sender-email" class="form-control" name="email" placeholder="Username">
+                                        </div>
+                                        <span class="material-input"></span></div>
+                                    <div class="form-group is-empty">
+                                        <div class="input-icon">
+                                            <i class="ti-lock"></i>
+                                            <input type="password" class="form-control" placeholder="Password">
+                                        </div>
+                                        <span class="material-input"></span></div>
+                                    <button class="btn btn-common log-btn">Login</button>
+                                    <div class="checkbox-item">
+                                        <div class="checkbox">
+                                            <label for="rememberme" class="rememberme">
+                                                <input name="rememberme" id="rememberme" value="forever" type="checkbox"><span class="checkbox-material"><span class="check"></span></span> Remember Me</label>
+                                        </div>
+                                        <p class="cd-form-bottom-message"><a href="#0">Lost your password?</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="cd-signup">
+                            <div class="page-login-form register">
+                                <form role="form" class="login-form">
+                                    <div class="form-group is-empty">
+                                        <div class="input-icon">
+                                            <i class="ti-user"></i>
+                                            <input type="text" id="sender-email" class="form-control" name="name" placeholder="Username">
+                                        </div>
+                                        <span class="material-input"></span></div>
+                                    <div class="form-group is-empty">
+                                        <div class="input-icon">
+                                            <i class="ti-email"></i>
+                                            <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                                        </div>
+                                        <span class="material-input"></span></div>
+                                    <div class="form-group is-empty">
+                                        <div class="input-icon">
+                                            <i class="ti-lock"></i>
+                                            <input type="password" class="form-control" placeholder="Password">
+                                        </div>
+                                        <span class="material-input"></span></div>
+                                    <div class="form-group is-empty">
+                                        <div class="input-icon">
+                                            <i class="ti-lock"></i>
+                                            <input type="password" class="form-control" placeholder="Repeat Password">
+                                        </div>
+                                        <span class="material-input"></span></div>
+                                    <button class="btn btn-common log-btn">Register</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="page-login-form" id="cd-reset-password">
+                            <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+                            <form class="cd-form">
+                                <div class="form-group is-empty">
+                                    <div class="input-icon">
+                                        <i class="ti-email"></i>
+                                        <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                                    </div>
+                                    <span class="material-input"></span></div>
+                                <p class="fieldset">
+                                    <button class="btn btn-common log-btn" type="submit">Reset password</button>
+                                </p>
+                            </form>
+                            <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
