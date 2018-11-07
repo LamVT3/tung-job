@@ -119,12 +119,23 @@
                             </div>
                         </div>
                         <div class="page-login-form" id="cd-reset-password">
+                            @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
-                            <form class="cd-form">
-                                <div class="form-group">
+                            <form class="cd-form" method="POST" action="{{ route('password.email') }}">
+                                {{ csrf_field() }}
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     <div class="input-icon">
                                         <i class="ti-email"></i>
                                         <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 <p class="fieldset">
