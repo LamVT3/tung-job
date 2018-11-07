@@ -33,7 +33,6 @@
 
                         <div id="cd-login" class="is-selected">
                             <div class="page-login-form">
-
                                 <form role="form" class="login-form" method="POST" action="{{ route('login') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
