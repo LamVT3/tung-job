@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-lock"></i>
-                                            <input id="password-confirm" name="password-confirm" type="password" class="form-control" placeholder="Repeat Password" required>
+                                            <input id="password-confirm" name="password_confirmation" type="password" class="form-control" placeholder="Repeat Password" required>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-common log-btn">Register</button>
