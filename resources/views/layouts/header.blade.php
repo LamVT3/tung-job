@@ -35,9 +35,45 @@
                                 </a>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right float-right">
-                            <li class="right"><a href="my-account.html"><i class="ti-lock"></i>  Log In</a></li>
-                        </ul>
+
+                        <!-- Authentication Links -->
+                        @guest
+                            <ul class="nav navbar-nav navbar-right float-right">
+                                <li class="right"><a href="{{ route('login') }}"><i class="ti-lock"></i>  Log In</a></li>
+                            </ul>
+                        @else
+                            <ul class="nav navbar-nav navbar-right float-right">
+                                <li class="right"><a href="{{ route('logout') }}"
+                                                     onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="ti-lock"></i>  Log Out</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+
+                                </li>
+                            </ul>
+                            {{--<li class="dropdown">--}}
+                                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>--}}
+                                    {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
+                                {{--</a>--}}
+
+                                {{--<ul class="dropdown-menu">--}}
+                                    {{--<li>--}}
+                                        {{--<a href="{{ route('logout') }}"--}}
+                                           {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                            {{--Logout--}}
+                                        {{--</a>--}}
+
+                                        {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                                            {{--{{ csrf_field() }}--}}
+                                        {{--</form>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
+                        @endguest
+
                     </div>
                 </div>
                 <!-- Mobile Menu Start -->

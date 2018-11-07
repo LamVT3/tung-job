@@ -188,7 +188,7 @@
                         Looking for a Job
                     </h1>
                     <p>Join thousand of employers and earn what you deserve!</p>
-                    <a href="my-account.html" class="btn btn-common">Get Started Now</a>
+                    <a href="{{ route('login') }}" class="btn btn-common">Get Started Now</a>
                 </div>
             </div>
         </div>
