@@ -59,24 +59,6 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <h4 class="text-center" style="margin-bottom: 10px">--- Or login with account ---</h4>
-                                    <div class="row text-center bottom-social-icons social-icon">
-                                        <div class="col-md-4 text-center">
-                                            <a href="{{ url('oauth/facebook') }}" class="facebook" style="border-radius: 0; background-color: #3b5998">
-                                                <i class="ti-facebook"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 text-center">
-                                            <a href="{{ url('oauth/google') }}" class="google" style="border-radius: 0; background-color: #CC181E">
-                                                <i class="ti-google"></i>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4 text-center">
-                                            <a href="{{ url('oauth/linkedin') }}" class="linkedin" style="border-radius: 0; background-color: #007bb5">
-                                                <i class="ti-linkedin"></i>
-                                            </a>
-                                        </div>
-                                    </div>
                                     <button class="btn btn-common log-btn" type="submit">Login</button>
                                     <div class="checkbox-item">
                                         <div class="checkbox">
@@ -84,7 +66,6 @@
                                                 <input name="rememberme" id="rememberme" value="forever" type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember Me</label>
                                         </div>
                                         <p class="cd-form-bottom-message"><a href="{{ route('password.request') }}">Lost your password?</a></p>
-                                        <span class="material-input"></span>
                                     </div>
                                 </form>
                             </div>

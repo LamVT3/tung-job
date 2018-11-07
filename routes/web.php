@@ -14,5 +14,18 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([ 'prefix' => 'oauth' ], function () {
+	Route::get('{provider}', [
+		'as'   => 'social.login',
+		'uses' => 'SocialAuth\SocialAuthController@login',
+	]);
+
+	Route::get('{provider}/callback', [
+		'as'   => 'social.callback',
+		'uses' => 'SocialAuth\SocialAuthController@callback',
+	]);
+});
+
+
