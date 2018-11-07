@@ -34,23 +34,23 @@
                         <div id="cd-login" class="is-selected">
                             <div class="page-login-form">
                                 <form role="form" class="login-form">
-                                    <div class="form-group is-empty">
+                                    <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-user"></i>
                                             <input type="text" id="sender-email" class="form-control" name="email" placeholder="Username">
                                         </div>
-                                        <span class="material-input"></span></div>
-                                    <div class="form-group is-empty">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-lock"></i>
                                             <input type="password" class="form-control" placeholder="Password">
                                         </div>
-                                        <span class="material-input"></span></div>
+                                    </div>
                                     <button class="btn btn-common log-btn">Login</button>
                                     <div class="checkbox-item">
                                         <div class="checkbox">
                                             <label for="rememberme" class="rememberme">
-                                                <input name="rememberme" id="rememberme" value="forever" type="checkbox"><span class="checkbox-material"><span class="check"></span></span> Remember Me</label>
+                                                <input name="rememberme" id="rememberme" value="forever" type="checkbox"> Remember Me</label>
                                         </div>
                                         <p class="cd-form-bottom-message"><a href="#0">Lost your password?</a></p>
                                     </div>
@@ -61,30 +61,30 @@
                         <div id="cd-signup">
                             <div class="page-login-form register">
                                 <form role="form" class="login-form">
-                                    <div class="form-group is-empty">
+                                    <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-user"></i>
                                             <input type="text" id="sender-email" class="form-control" name="name" placeholder="Username">
                                         </div>
-                                        <span class="material-input"></span></div>
-                                    <div class="form-group is-empty">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-email"></i>
                                             <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
                                         </div>
-                                        <span class="material-input"></span></div>
-                                    <div class="form-group is-empty">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-lock"></i>
                                             <input type="password" class="form-control" placeholder="Password">
                                         </div>
-                                        <span class="material-input"></span></div>
-                                    <div class="form-group is-empty">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="input-icon">
                                             <i class="ti-lock"></i>
                                             <input type="password" class="form-control" placeholder="Repeat Password">
                                         </div>
-                                        <span class="material-input"></span></div>
+                                    </div>
                                     <button class="btn btn-common log-btn">Register</button>
                                 </form>
                             </div>
@@ -92,12 +92,12 @@
                         <div class="page-login-form" id="cd-reset-password">
                             <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
                             <form class="cd-form">
-                                <div class="form-group is-empty">
+                                <div class="form-group">
                                     <div class="input-icon">
                                         <i class="ti-email"></i>
                                         <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
                                     </div>
-                                    <span class="material-input"></span></div>
+                                </div>
                                 <p class="fieldset">
                                     <button class="btn btn-common log-btn" type="submit">Reset password</button>
                                 </p>

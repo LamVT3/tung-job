@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/responsive.css" type="text/css">
 
     <!-- Color CSS Styles  -->
-    <link rel="stylesheet" type="text/css" href="css/colors/red.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/lightgreen.css" media="screen" />
 
 </head>
 
