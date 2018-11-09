@@ -29,7 +29,9 @@ Route::group([ 'prefix' => 'oauth' ], function () {
 });
 
 Route::group(['prefix' => 'job'], function () {
-    Route::get('/create', 'JobController@create')->name('create-job');
+    Route::get('/', 'JobController@index')->name('all-job');
+    Route::get('/create', 'JobController@showFormCreate')->name('show-create-job');
+    Route::post('/create', 'JobController@create')->name('save-job');
 });
 
 

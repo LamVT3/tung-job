@@ -20,7 +20,7 @@
                         <!-- Start Navigation List -->
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="index.html">
+                                <a href="{{route('all-job')}}">
                                     All Jobs
                                 </a>
                             </li>
@@ -36,7 +36,7 @@
                                 </a>
                                 <ul class="dropdown">
                                     <li>
-                                        <a href="{{route('create-job')}}">
+                                        <a href="{{route('show-create-job')}}">
                                             Add Job
                                         </a>
                                     </li>

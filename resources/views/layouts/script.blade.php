@@ -16,3 +16,6 @@
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.revolution.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.themepunch.tools.min.js')}}"></script>
 
+<!-- JQUERY VALIDATE -->
+<script src="{{ asset('js/jquery-validate/jquery.validate.min.js') }}"></script>
+
