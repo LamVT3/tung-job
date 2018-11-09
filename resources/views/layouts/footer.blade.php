@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="widget">
-                        <h3 class="block-title"><img src="img/logo.png" class="img-responsive" alt="Footer Logo"></h3>
+                        <h3 class="block-title"><img src="{{asset('img/logo.png')}}" class="img-responsive" alt="Footer Logo"></h3>
                         <div class="textwidget">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed.</p>
                         </div>

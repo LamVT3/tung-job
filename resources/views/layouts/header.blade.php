@@ -13,7 +13,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand logo" href="index.html"><img src="img/logo.png" alt=""></a>
+                        <a class="navbar-brand logo" href="index.html"><img src="{{asset('img/logo.png')}}" alt=""></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbar">
@@ -21,7 +21,7 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <a href="index.html">
-                                    All Jobs </i>
+                                    All Jobs
                                 </a>
                             </li>
                             <li>
@@ -29,18 +29,32 @@
                                     Company Reviews
                                 </a>
                             </li>
+                            @if(@auth()->user()->role == "ADMIN")
                             <li>
                                 <a href="#">
-                                    Employers </i>
+                                    Employers <i class="fa fa-angle-down"></i>
                                 </a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="{{route('create-job')}}">
+                                            Add Job
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="manage-jobs.html">
+                                            Manage Jobs
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
+                            @endif
                         </ul>
 
                         <!-- Authentication Links -->
                         @guest
                             <ul class="nav navbar-nav navbar-right float-right">
                                 <li class="right"><a href="{{ route('login') }}"><i class="ti-lock"></i>  Log In</a></li>
-                                <li class="right"><a href="{{ route('login') }}"><i class="ti-lock"></i>  REGISTER</a></li>
+                                <li class="right"><a href="{{ route('register') }}"><i class="ti-lock"></i>  REGISTER</a></li>
                             </ul>
                         @else
                             <ul class="nav navbar-nav navbar-right float-right">

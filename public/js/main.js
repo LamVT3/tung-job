@@ -255,10 +255,10 @@ $('#clients-scroller').owlCarousel({
 
 
   //switch from a tab to another
-  $form_modal_tab.on('click', function(event) {
-    event.preventDefault();
-    ( $(event.target).is( $tab_login ) ) ? login_selected() : signup_selected();
-  });
+  // $form_modal_tab.on('click', function(event) {
+  //   event.preventDefault();
+  //   ( $(event.target).is( $tab_login ) ) ? login_selected() : signup_selected();
+  // });
 
   //show forgot-password form 
   $forgot_password_link.on('click', function(event){
