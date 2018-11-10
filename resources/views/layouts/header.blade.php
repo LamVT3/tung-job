@@ -3,7 +3,7 @@
     <!-- Start intro section -->
     <section id="intro" class="section-intro">
         <div class="logo-menu">
-            <nav class="navbar navbar-default" role="navigation" data-spy="affix" data-offset-top="50">
+            <nav class="navbar navbar-default main-navigation affix-top" role="navigation" data-spy="affix" data-offset-top="50">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -13,7 +13,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand logo" href="index.html"><img src="{{asset('img/logo.png')}}" alt=""></a>
+                        <a class="navbar-brand logo" href="{{route('home')}}"><img src="{{asset('img/logo.png')}}" alt=""></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbar">
@@ -41,7 +41,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="manage-jobs.html">
+                                        <a href="{{route('manage-job')}}">
                                             Manage Jobs
                                         </a>
                                     </li>

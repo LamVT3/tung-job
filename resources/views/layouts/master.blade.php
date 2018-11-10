@@ -37,7 +37,6 @@
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css">
 
     <!-- Color CSS Styles  -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/colors/lightgreen.css')}}" media="screen" />
 
 </head>
 

@@ -32,8 +32,6 @@ class JobController extends Controller
         return view('pages.job.index', compact(
             'data'
         ));
-
-        return view('pages.job.index');
     }
 
     /**
@@ -79,6 +77,56 @@ class JobController extends Controller
         $job->save();
 
         return response()->json(['type' => 'success', 'url' => route('home'), 'message' => 'Job has been created!']);
+    }
+
+    /**
+     * Manage job.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function manage()
+    {
+        $data = Job::all();
+
+        return view('pages.job.manage', compact(
+            'data'
+        ));
+    }
+
+    /**
+     * Set feature for job.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function set_featured()
+    {
+        $request     = request();
+        $id          = $request->id;
+
+        $job = Job::find($id);
+        if($job->is_featured && $job->is_featured == '1'){
+            $job->is_featured = '0';
+        }else{
+            $job->is_featured = '1';
+        }
+
+        $job->save();
+
+        return response()->json(['type' => 'success', 'is_featured' => $job->is_featured, 'message' => 'Job has been update featured!']);
+    }
+
+    /**
+     * Manage job.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function detail($id)
+    {
+        $data = Job::find($id);
+
+        return view('pages.job.detail', compact(
+            'data'
+        ));
     }
 
 }

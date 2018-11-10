@@ -32,6 +32,9 @@ Route::group(['prefix' => 'job'], function () {
     Route::get('/', 'JobController@index')->name('all-job');
     Route::get('/create', 'JobController@showFormCreate')->name('show-create-job');
     Route::post('/create', 'JobController@create')->name('save-job');
+    Route::get('/manage', 'JobController@manage')->name('manage-job');
+    Route::get('/set-featured', 'JobController@set_featured')->name('set-featured');
+    Route::get('/detail/{id}', 'JobController@detail')->name('job-detail');
 });
 
 

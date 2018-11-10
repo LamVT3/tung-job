@@ -5,31 +5,31 @@ window.console = window.console || (function(){
 	return c;
 })();
 
-
+var domain = location.origin;
 jQuery(document).ready(function($) {
 	$("ul.colors .color1" ).click(function(){
-		$("#colors" ).attr("href", "css/colors/red.css" );
+		$("#colors" ).attr("href", domain + "/css/colors/lightgreen.css" );
 		return false;
 	});
 	$("ul.colors .color2" ).click(function(){
-		$("#colors" ).attr("href", "css/colors/blue.css" );
+		$("#colors" ).attr("href", domain + "/css/colors/blue.css" );
 		return false;
 	});
 	$("ul.colors .color3" ).click(function(){
-		$("#colors" ).attr("href", "css/colors/lightgreen.css" );
+		$("#colors" ).attr("href", domain + "/css/colors/red.css" );
 		return false;
 	});
 	$("ul.colors .color4" ).click(function(){
-		$("#colors" ).attr("href", "css/colors/sky.css" );
+		$("#colors" ).attr("href", domain + "/css/colors/sky.css" );
 		return false;
 	});	
 	"use strict"
 	$("ul.colors .color5" ).click(function(){
-		$("#colors" ).attr("href", "css/colors/green.css" );
+		$("#colors" ).attr("href", domain + "/css/colors/green.css" );
 		return false;
 	});	
 	$("ul.colors .color6" ).click(function(){
-		$("#colors" ).attr("href", "css/colors/yellow.css" );
+		$("#colors" ).attr("href", domain + "/css/colors/yellow.css" );
 		return false;
 	});	
 
@@ -60,8 +60,8 @@ jQuery(document).ready(function($) {
 
 
 //Inject Necessary Styles and HTML
-jQuery('head').append('<link rel="stylesheet" id="colors" href="css/colors/red.css" type="text/css" />');
-jQuery('head').append('<link rel="stylesheet" href="css/color-switcher.css" type="text/css" />');
+jQuery('head').append('<link rel="stylesheet" id="colors" href="'+ domain +'/css/colors/lightgreen.css" type="text/css" />');
+jQuery('head').append('<link rel="stylesheet" href="'+ domain +'/css/color-switcher.css" type="text/css" />');
 
 jQuery('body').append('' + 
 	'<div id="color-style-switcher">' +

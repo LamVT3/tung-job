@@ -9,7 +9,7 @@
                     <div class="breadcrumb-wrapper">
                         <h2 class="product-title">Post A Job</h2>
                         <ol class="breadcrumb">
-                            <li><a href="#"><i class="ti-home"></i> Home</a></li>
+                            <li><a href="{{route('home')}}"><i class="ti-home"></i> Home</a></li>
                             <li class="current">Post A Job</li>
                         </ol>
                     </div>
@@ -197,23 +197,23 @@
 
             $('#form-create-job').submit(function (e) {
                 e.preventDefault();
-                var url = $('input[name=save-job-url]').val();
-                var redirect_url = $('input[name=redirect-url]').val();
+                var url             = $('input[name=save-job-url]').val();
+                var redirect_url    = $('input[name=redirect-url]').val();
                 var data = {};
-                data._token = $(this).find('[name=_token]').val();
-                data.job_title = $(this).find('[name=job_title]').val();
-                data.location = $(this).find('[name=location]').val();
-                data.job_type = $(this).find('[name=job_type]').val();
-                data.exprience = $(this).find('[name=exprience]').val();
-                data.amount = $(this).find('[name=amount]').val();
-                data.salary = $(this).find('[name=salary]').val();
-                data.job_tag = $(this).find('[name=job_tag]').val();
-                data.description = $(this).find('[name=description]').val();
-                data.email = $(this).find('[name=email]').val();
-                data.expire_date = $(this).find('[name=expire_date]').val();
-                data.company_logo = $(this).find('[name=company_logo]').val();
-                data.company_name = $(this).find('[name=company_name]').val();
-                data.company_url = $(this).find('[name=company_url]').val();
+                data._token         = $(this).find('[name=_token]').val();
+                data.job_title      = $(this).find('[name=job_title]').val();
+                data.location       = $(this).find('[name=location]').val();
+                data.job_type       = $(this).find('[name=job_type]').val();
+                data.exprience      = $(this).find('[name=exprience]').val();
+                data.amount         = $(this).find('[name=amount]').val();
+                data.salary         = $(this).find('[name=salary]').val();
+                data.job_tag        = $(this).find('[name=job_tag]').val();
+                data.description    = $(this).find('[name=description]').val();
+                data.email          = $(this).find('[name=email]').val();
+                data.expire_date    = $(this).find('[name=expire_date]').val();
+                data.company_logo   = $(this).find('[name=company_logo]').val();
+                data.company_name   = $(this).find('[name=company_name]').val();
+                data.company_url    = $(this).find('[name=company_url]').val();
 
                 if(!$(this).valid()){
                     return false;

@@ -90,13 +90,13 @@ ul.colors li a.color1.active:after, ul.colors li a.color8.active:after{
 
 /* light-version */
 ul.colors .color1 {
-    background: #99c33b;  /* red */    
+    background: #99c33b;  /* green */
 }
 ul.colors .color2 {
     background: #1650E2;  /* blue */
 }
 ul.colors .color3 {
-     background: #94c523 ; /* green */
+     background: #FF4F57 ; /* red */
 }
 ul.colors .color4 {
      background: #07BEFA;  /* sky */

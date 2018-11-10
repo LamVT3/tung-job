@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $data = Job::where('is_featured', '1')->get();
 
-
-        return view('home');
+        return view('home', compact(
+            'data'
+        ));
     }
 }
