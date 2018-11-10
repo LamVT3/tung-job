@@ -118,6 +118,7 @@ a:focus {
   border-radius: 50px;
   overflow: hidden;
   position: relative;
+  border: 1px solid!important;
 }
 .btn-border:hover {
   color: #99c33b;

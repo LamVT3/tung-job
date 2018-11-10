@@ -67,7 +67,7 @@
                                     <div class="icon">
                                         <i class="ti-heart"></i>
                                     </div>
-                                    <a href="job-details.html" class="btn btn-common btn-rm">More Detail</a>
+                                    <a href="job-details.html" class="btn btn-common btn-rm">Apply Job</a>
                                 </div>
                             </div>
                         </div>
