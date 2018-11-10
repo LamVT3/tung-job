@@ -37,6 +37,10 @@ Route::group(['prefix' => 'job'], function () {
     Route::get('/detail/{id}', 'JobController@detail')->name('job-detail');
 });
 
+Route::group(['prefix' => 'user'], function () {
+	Route::get('/profile', 'UserController@index')->name('user-profile');
+});
+
 
 
 
