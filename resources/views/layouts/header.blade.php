@@ -48,6 +48,11 @@
                                 </ul>
                             </li>
                             @endif
+                            <li>
+                                <a href="{{route('user-profile')}}">
+                                    My Profile
+                                </a>
+                            </li>
                         </ul>
 
                         <!-- Authentication Links -->

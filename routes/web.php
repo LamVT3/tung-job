@@ -34,6 +34,10 @@ Route::group(['prefix' => 'job'], function () {
     Route::post('/create', 'JobController@create')->name('save-job');
 });
 
+Route::group(['prefix' => 'user'], function () {
+	Route::get('/profile', 'UserController@index')->name('user-profile');
+});
+
 
 
 
