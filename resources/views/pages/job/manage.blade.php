@@ -29,17 +29,20 @@
                         <h3 class="alerts-title">Manage Jobs</h3>
                         <div class="alerts-list">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <p>Title</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <p>Status</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <p>Featured</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <p>Edit</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p>Delete</p>
                                 </div>
                             </div>
                         </div>
@@ -47,39 +50,52 @@
                         @foreach($data as $item)
                         <div class="alerts-content">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <h3>{{$item->job_title}}</h3>
-                                    <span class="location"><i class="ti-location-pin"></i> {{$item->location}}</span>
+                                    <span class="location"><i class="ti-location-pin"></i> {{$item->company_name}}</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <p><span class="full-time">Full-Time</span></p>
-                                </div>
+
+                                @if($item->is_deleted == '1')
+                                    <div class="col-md-2 status">
+                                        <button type="button" class="btn btn-danger">Deleted</button>
+                                    </div>
+                                @else
+                                    <div class="col-md-2 status">
+                                        <button type="button" class="btn btn-info status">On-going</button>
+                                    </div>
+                                @endif
+
                                 @if($item->is_featured == '1')
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <a href="#" class="set_featured" data-item-id="{{$item->_id}}"><i class="fa fa-toggle-on fa-3x" aria-hidden="true"></i></a>
                                 </div>
                                 @else
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <a class="set_featured" data-item-id="{{$item->_id}}"><i class="fa fa-toggle-off fa-3x" aria-hidden="true"></i></a>
                                 </div>
                                 @endif
-                                <div class="col-md-3">
-                                    <div class="can-img"><a href="#"><img src="assets/img/jobs/candidates.png" alt=""></a></div>
+                                <div class="col-md-2">
+                                    <a href="{{route('show-edit-job', $item->_id)}}" class="">
+                                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-2">
+                                    <a class="delete_job" data-item-id="{{$item->_id}}"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
 
                         <br>
-                        <ul class="pagination">
-                            <li class="active"><a href="#" class="btn btn-common"><i class="ti-angle-left"></i> prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="active"><a href="#" class="btn btn-common">Next <i class="ti-angle-right"></i></a></li>
-                        </ul>
+                        {{--<ul class="pagination">--}}
+                            {{--<li class="active"><a href="#" class="btn btn-common"><i class="ti-angle-left"></i> prev</a></li>--}}
+                            {{--<li><a href="#">1</a></li>--}}
+                            {{--<li><a href="#">2</a></li>--}}
+                            {{--<li><a href="#">3</a></li>--}}
+                            {{--<li><a href="#">4</a></li>--}}
+                            {{--<li><a href="#">5</a></li>--}}
+                            {{--<li class="active"><a href="#" class="btn btn-common">Next <i class="ti-angle-right"></i></a></li>--}}
+                        {{--</ul>--}}
 
                     </div>
                 </div>
@@ -87,8 +103,9 @@
         </div>
     </div>
 
-    <input type="hidden" name="set-featured-url" value="{{route('set-featured')}}">
+    <input type="hidden" name="delete-job-url" value="{{route('delete-job')}}">
     <input type="hidden" name="redirect-url" value="{{route('home')}}">
+
 @endsection
 
 @section('script')
@@ -105,8 +122,6 @@
                 var data = {};
                 data.id = $(item).data('item-id');
 
-                console.log(data);
-
                 $.get(url, data, function (data) {
                     console.log(data);
                     $(item).find('i').remove();
@@ -116,6 +131,26 @@
                         $(item).append('<i class="fa fa-toggle-off fa-3x" aria-hidden="true">');
                     }
 
+                }).fail(
+                    function (err) {
+                        console.log(err);
+                    });
+
+            })
+
+            $('a.delete_job').click(function (e) {
+                e.preventDefault();
+                var url = $('input[name=delete-job-url]').val();
+                var item = this;
+                var data = {};
+                data.id = $(item).data('item-id');
+
+                $.get(url, data, function (data) {
+                    console.log(data);
+                    $(item).parent().siblings('div.status').find('button').remove();
+                    $(item).parent().siblings('div.status').append('<button type="button" class="btn btn-danger">Deleted</button>');
+
+                    console.log( $(item).parent().siblings('div.status').find('button'));
                 }).fail(
                     function (err) {
                         console.log(err);

@@ -25,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Job::where('is_featured', '1')->get();
+        $data = Job::where('is_featured', '1')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('home', compact(
             'data'

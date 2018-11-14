@@ -35,6 +35,9 @@ Route::group(['prefix' => 'job'], function () {
     Route::get('/manage', 'JobController@manage')->name('manage-job');
     Route::get('/set-featured', 'JobController@set_featured')->name('set-featured');
     Route::get('/detail/{id}', 'JobController@detail')->name('job-detail');
+    Route::get('/edit/{id}', 'JobController@showFormEdit')->name('show-edit-job');
+    Route::post('/edit/{id}', 'JobController@edit')->name('edit-job');
+    Route::get('/delete', 'JobController@delete')->name('delete-job');
 });
 
 Route::group(['prefix' => 'user'], function () {

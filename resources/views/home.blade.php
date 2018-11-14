@@ -53,14 +53,21 @@
                             <a href="job-details.html"><img src="img/jobs/img-1.jpg" alt=""></a>
                         </div>
                         <div class="job-list-content">
-                            <h4><a href="job-details.html">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
+                            <h4><a href="job-details.html">{{$item->job_title}}</a>
+                                @if($item->job_type == 'Full-Time')
+                                    <span class="full-time">Full-Time</span>
+                                @else
+                                    <span class="part-time">Part-Time</span>
+                                @endif
+
+                            </h4>
+                            <p>{{substr($item->description, 0, 240)}}</p>
                             <div class="job-tag">
                                 <div class="pull-left">
                                     <div class="meta-tag">
-                                        <span><a href="browse-categories.html"><i class="ti-brush"></i>Art/Design</a></span>
-                                        <span><i class="ti-location-pin"></i>Washington, USA</span>
-                                        <span><i class="ti-time"></i>60/Hour</span>
+                                        <span><a href="browse-categories.html"><i class="ti-brush"></i>{{$item->job_tag}}</a></span>
+                                        <span><i class="ti-location-pin"></i>{{$item->location}}</span>
+                                        <span><i class="ti-time"></i>{{$item->job_tag}}</span>
                                     </div>
                                 </div>
                                 <div class="pull-right">
@@ -74,20 +81,6 @@
                     </div>
                     @endforeach
 
-                </div>
-                <div class="col-md-12">
-                    <div class="showing pull-left">
-                        <a href="#">Showing <span>6-10</span> Of 24 Jobs</a>
-                    </div>
-                    <ul class="pagination pull-right">
-                        <li class="active"><a href="#" class="btn btn-common" ><i class="ti-angle-left"></i> prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li class="active"><a href="#" class="btn btn-common">Next <i class="ti-angle-right"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
