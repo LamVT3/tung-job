@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-wrapper">
-                        <h2 class="product-title">Post A Job</h2>
+                        <h2 class="product-title">Edit Job</h2>
                         <ol class="breadcrumb">
                             <li><a href="{{route('home')}}"><i class="ti-home"></i> Home</a></li>
-                            <li class="current">Post A Job</li>
+                            <li class="current">Edit Job</li>
                         </ol>
                     </div>
                 </div>
@@ -30,11 +30,11 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label class="control-label require_field">Job Title</label>
-                            <input name="job_title" type="text" class="form-control" placeholder="Enter the Job Title" value="">
+                            <input name="job_title" type="text" class="form-control" placeholder="Enter the Job Title" value="{{$data->job_title}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Location <span>(optional)</span></label>
-                            <input id="" name="location" type="text" class="form-control" placeholder="e.g.Ho Chi Minh">
+                            <input id="" name="location" type="text" class="form-control" placeholder="e.g.Ho Chi Minh" value="{{$data->location}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Job Type</label>
@@ -49,26 +49,26 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Experience </label>
-                            <input name="exprience" type="number" class="form-control" placeholder="Enter the number of years of experience">
+                            <input name="exprience" type="number" class="form-control" placeholder="Enter the number of years of experience" value="{{$data->exprience}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Amount </label>
-                            <input name="amount" type="number" class="form-control" placeholder="Enter the number of position">
+                            <input name="amount" type="number" class="form-control" placeholder="Enter the number of position" value="{{$data->amount}}">
                         </div>
                         <div class="form-group" style="margin-bottom: 0px!important;">
                             <label class="control-label require_field">Salary (USD) </label>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <input type="number" class="form-control" id="salary_from" name="salary_from" placeholder="From">
+                                <input type="number" class="form-control" id="salary_from" name="salary_from" placeholder="From" value="{{$data->salary_from}}">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="number" class="form-control" id="salary_to" name="salary_to" placeholder="To">
+                                <input type="number" class="form-control" id="salary_to" name="salary_to" placeholder="To" value="{{$data->salary_to}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label require_field" for="textarea">Job Tags <span>(optional)</span></label>
-                            <input name="job_tag" type="text" class="form-control" placeholder="e.g.PHP,Social Media,Management">
+                            <label class="control-label require_field" for="textarea">Job Tags </label>
+                            <input name="job_tag" type="text" class="form-control" placeholder="e.g.PHP,Social Media,Management" value="{{$data->job_tag}}" >
                             <p class="note">Comma separate tags, such as required skills or technologies, for this job.</p>
                         </div>
                         <div class="form-group" style="margin-bottom: 0px!important;">
@@ -76,74 +76,51 @@
                         </div>
                         <section id="editor">
                             <div name="description" id="description">
-                                <h4>Job Description</h4>
-                                <p>LemonKids LLC. In marketing communications, we dream it and create it. All of the company’s promotional and communication ...</p>
-                                <p>If you’re a dreamer, gather up your portfolio and show us your vision ...</p>
-                                <h4>Qualification</h4>
-                                <p>Qualified candidates for this role will possess the following education, experience and skills:</p>
-                                <ul>
-                                    <li><i class="ti-check-box"></i>Demonstrated strong and effective verbal, written, and interpersonal communication skills</li>
-                                    <li><i class="ti-check-box"></i>...</li>
-                                </ul>
-                                <h4>Key responsibilities also include</h4>
-                                <ul>
-                                    <li><i class="ti-check-box"></i>Technical strategy and design, implementation as well as sector specific monitoring and evaluation.</li>
-                                    <li><i class="ti-check-box"></i>...</li>
-                                </ul>
-                                <h4>Requirements</h4>
-                                <ul>
-                                    <li><i class="ti-check-box"></i>Must have minimum of 3 years experience running, maneuvering, driving...</li>
-                                    <li><i class="ti-check-box"></i>...</li>
-                                </ul>
-                                <h4>Benefits</h4>
-                                <ul>
-                                    <li><i class="ti-check-box"></i>We provide a professional, fun and exciting work environment where innovation and creativity thrive!</li>
-                                    <li><i class="ti-check-box"></i>...</li>
-                                </ul>
+                                {!! $data->description !!}
                             </div>
                         </section>
                         <div class="form-group">
                             <label class="control-label require_field">Application email / URL</label>
-                            <input name="email" type="text" class="form-control" placeholder="Enter an email address or website URL">
+                            <input name="email" type="text" class="form-control" placeholder="Enter an email address or website URL" value="{{$data->email}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Closing Date <span>(optional)</span></label>
-                            <input name="expire_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
+                            <input name="expire_date" type="text" class="form-control" placeholder="yyyy-mm-dd" value="{{$data->expire_date}}">
                             <p class="note">Deadline for new applicants.</p>
                         </div>
                         <div class="divider"><h3>Company Details</h3></div>
                         <div class="form-group">
                             <label class="control-label require_field">Company Logo</label>
-                            <input name="company_logo" type="text" class="form-control" placeholder="Enter the name of the company">
+                            <input name="company_logo" type="text" class="form-control" placeholder="Enter the name of the company" value="{{$data->company_logo}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Company Name</label>
-                            <input name="company_name" type="text" class="form-control" placeholder="Enter the name of the company">
+                            <input name="company_name" type="text" class="form-control" placeholder="Enter the name of the company" value="{{$data->company_name}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Company Location</label>
-                            <input name="company_location" type="text" class="form-control" placeholder="e.g.Ho Chi Minh">
+                            <input name="company_location" type="text" class="form-control" placeholder="e.g.Ho Chi Minh" value="{{$data->company_location}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Country</label>
-                            <input name="company_country" type="text" class="form-control" placeholder="e.g.Viet Nam">
+                            <input name="company_country" type="text" class="form-control" placeholder="e.g.Viet Nam" value="{{$data->company_country}}">
                         </div>
                         <div class="form-group" style="margin-bottom: 0px!important;">
                             <label class="control-label require_field">Company Size </label>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <input type="number" class="form-control" id="company_size_from" name="company_size_from" placeholder="From">
+                                <input type="number" class="form-control" id="company_size_from" name="company_size_from" placeholder="From" value="{{$data->company_size_from}}">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="number" class="form-control" id="company_size_to" name="company_size_to" placeholder="To">
+                                <input type="number" class="form-control" id="company_size_to" name="company_size_to" placeholder="To" value="{{$data->company_size_to}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label require_field">Website <span>(optional)</span></label>
-                            <input name="company_url" type="text" class="form-control" placeholder="http://">
+                            <label class="control-label require_field">Website </label>
+                            <input name="company_url" type="text" class="form-control" placeholder="http://" value="{{$data->company_url}}">
                         </div>
-                        <button type="submit" class="btn btn-common">Submit your job</button>
+                        <button type="submit" class="btn btn-common">Save your job</button>
                     </form>
                 </div>
             </div>
@@ -151,8 +128,8 @@
     </div>
     </section>
 
-    <input type="hidden" name="save-job-url" value="{{route('save-job')}}">
-    <input type="hidden" name="redirect-url" value="{{route('home')}}">
+    <input type="hidden" name="save-job-url" value="{{route('edit-job', $data->_id)}}">
+    <input type="hidden" name="redirect-url" value="{{route('manage-job')}}">
 @endsection
 
 @section('script')
@@ -276,6 +253,7 @@
                 var redirect_url    = $('input[name=redirect-url]').val();
                 var data = {};
                 data._token         = $(this).find('[name=_token]').val();
+
                 data.job_title      = $(this).find('[name=job_title]').val();
                 data.location       = $(this).find('[name=location]').val();
                 data.job_type       = $(this).find('[name=job_type]').val();
