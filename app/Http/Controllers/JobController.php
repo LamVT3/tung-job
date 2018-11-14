@@ -128,9 +128,9 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail($id)
+    public function detail($slug)
     {
-        $data = Job::find($id);
+        $data = Job::where('slug_title', $slug)->first();
 
         return view('pages.job.detail', compact(
             'data'

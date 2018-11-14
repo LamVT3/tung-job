@@ -29,7 +29,7 @@
                                         <div class="icon">
                                             <i class="ti-heart"></i>
                                         </div>
-                                        <a href="{{route('job-detail', $item->_id)}}" class="btn btn-common btn-rm">Apply Job</a>
+                                        <a href="{{route('job-detail', $item->slug_title)}}" class="btn btn-common btn-rm">Apply Job</a>
                                     </div>
                                 </div>
                             </div>

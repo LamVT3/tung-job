@@ -57,7 +57,7 @@
                             <div class="box">
                                 {!! $data->description !!}
                                 <div>
-                                    <a href="#" class="btn btn-common">Apply for this Job Now</a>
+                                    <a href="#" class="btn btn-common" data-toggle="modal" data-target="#myModal">Apply for this Job Now</a>
                                 </div>
                             </div>
                         </div>

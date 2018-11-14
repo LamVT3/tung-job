@@ -33,15 +33,18 @@
                                     <p>Title</p>
                                 </div>
                                 <div class="col-md-2">
+                                    <p>Permalink</p>
+                                </div>
+                                <div class="col-md-2">
                                     <p>Status</p>
                                 </div>
                                 <div class="col-md-2">
                                     <p>Featured</p>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-1">
                                     <p>Edit</p>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-1">
                                     <p>Delete</p>
                                 </div>
                             </div>
@@ -53,6 +56,10 @@
                                 <div class="col-md-4">
                                     <h3>{{$item->job_title}}</h3>
                                     <span class="location"><i class="ti-location-pin"></i> {{$item->company_name}}</span>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <a class="text-info" href="{{route('job-detail', $item->slug_title)}}" target="_blank">Link</a>
                                 </div>
 
                                 @if($item->is_deleted == '1')
@@ -74,12 +81,13 @@
                                     <a class="set_featured" data-item-id="{{$item->_id}}"><i class="fa fa-toggle-off fa-3x" aria-hidden="true"></i></a>
                                 </div>
                                 @endif
-                                <div class="col-md-2">
+
+                                <div class="col-md-1">
                                     <a href="{{route('show-edit-job', $item->_id)}}" class="">
                                     <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
                                     </a>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-1">
                                     <a class="delete_job" data-item-id="{{$item->_id}}"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></a>
                                 </div>
                             </div>
