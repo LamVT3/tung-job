@@ -82,7 +82,7 @@
                                     <li><i class="ti-check-box"></i>Must have minimum of 3 years experience running, maneuvering, driving, and navigating equipment such as bulldozer, excavators, rollers, and front-end loaders.</li>
                                     <li><i class="ti-check-box"></i>Strongly prefer candidates with High School Diploma</li>
                                 </ul>
-                                <a href="#" class="btn btn-common">Apply for this Job Now</a>
+                                <a href="#" class="btn btn-common" data-toggle="modal" data-target="#myModal">Apply for this Job Now</a>
                             </div>
                         </div>
                     </div>
@@ -272,6 +272,49 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div style="text-align: center; padding: 2em 0">
+                            <img src="{{$data->company_logo}}" class="img-responsive" alt="{{$data->company_name}}">
+                            <h3>{{$data->job_title}}</h3>
+                            <p>{{$data->company_name}}</p>
+                        </div>
+                        <div class="page-login-form register">
+                            <form class="login-form" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required="">
+                                </div>
+
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="About You / Paste your CV"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <span class="btn btn-common">Upload CV</span>
+                                    <input type="file" class="form-control">
+                                </div>
+                                <div class="form-group center">
+                                    <button type="submit" class="btn btn-common"> Apply Now </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <input type="hidden" name="set-featured-url" value="{{route('set-featured')}}">
     <input type="hidden" name="redirect-url" value="{{route('home')}}">

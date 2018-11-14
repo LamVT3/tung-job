@@ -59,7 +59,6 @@
                         @guest
                             <ul class="nav navbar-nav navbar-right float-right">
                                 <li class="right"><a href="{{ route('login') }}"><i class="ti-lock"></i>  Log In</a></li>
-                                <li class="right"><a href="{{ route('register') }}"><i class="ti-lock"></i>  REGISTER</a></li>
                             </ul>
                         @else
                             <ul class="nav navbar-nav navbar-right float-right">
@@ -80,7 +79,7 @@
                 <!-- Mobile Menu Start -->
                 <ul class="wpb-mobile-menu">
                     <li>
-                        <a class="active" href="index.html">All Jobs</a>
+                        <a class="active" href="{{route('all-job')}}">All Jobs</a>
                     </li>
                     <li>
                         <a href="about.html">Company Reviews</a>
@@ -88,7 +87,7 @@
                     <li>
                         <a href="#">For Employers</a>
                     </li>
-                    <li class="btn-m"><a href="my-account.html"><i class="ti-lock"></i>  Log In</a></li>
+                    <li class="btn-m"><a href="{{ route('login') }}"><i class="ti-lock"></i>  Log In</a></li>
                 </ul>
                 <!-- Mobile Menu End -->
             </nav>

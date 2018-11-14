@@ -38,7 +38,8 @@ Route::group(['prefix' => 'job'], function () {
 });
 
 Route::group(['prefix' => 'user'], function () {
-	Route::get('/profile', 'UserController@index')->name('user-profile');
+	Route::get('/profile', 'UserController@applications')->name('user-profile');
+	Route::get('/apply', 'UserController@apply')->name('user-apply');
 });
 
 

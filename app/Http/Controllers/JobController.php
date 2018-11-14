@@ -15,7 +15,9 @@ class JobController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => [
+	        'index', 'detail'
+        ]]);
     }
 
     /**
@@ -58,6 +60,7 @@ class JobController extends Controller
         $job = new Job();
 
         $job->job_title     = $request->job_title;
+        $job->slug          = str_slug($request->job_title);
         $job->location      = $request->location;
         $job->job_type      = $request->job_type;
         $job->exprience     = $request->exprience;

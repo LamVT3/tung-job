@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -17,14 +19,21 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+	public function applications()
+	{
+		$jobs = Job::paginate(1);
+		return view('pages.profile.applications', compact('jobs'));
+	}
 
-        return view('pages.profile.index');
-    }
+	public function apply(){
+		$data = ['foo' => 'baz'];
+
+		Mail::send('emails.apply', $data, function($message)
+		{
+			$message->to('mail@domain.net');
+			$message->subject('Welcome to Laravel');
+			$message->from('sender@domain.net');
+			$message->attach('/public/upload/pdf-test.pdf');
+		});
+	}
 }

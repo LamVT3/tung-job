@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="site-info text-center">
-                        Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
+                        Shared by <i class="fa fa-love"></i><a href="#">BootstrapThemes</a>
                     </div>
                 </div>
             </div>
