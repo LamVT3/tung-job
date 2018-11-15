@@ -11,11 +11,9 @@
                 {{--<input class="form-control" type="email" placeholder="city / province / zip code">
                 <i class="ti-location-pin"></i>--}}
                 <select  class="form-control" name="location">
-{{--                    @foreach($locations as $location)--}}
                     <option value="ha noi" @if(@$location == "ha noi") selected @endif>Ha Noi</option>
                     <option value="da nang" @if(@$location == "da nang") selected @endif>Da Nang</option>
                     <option value="ho chi minh" @if(@$location == "ho chi minh") selected @endif>Ho Chi Minh</option>
-                    {{--@endforeach--}}
                 </select>
                 <i class="ti-location-pin"></i>
             </div>

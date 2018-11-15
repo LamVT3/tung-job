@@ -80,7 +80,6 @@ class JobController extends Controller
         $job->created_date  = date('Y-m-d H:i:s');
 
         $job->slug_title        = str_slug($request->job_title).'-'.uniqid();
-        $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $job->save();
 
@@ -198,7 +197,6 @@ class JobController extends Controller
         $job->created_date  = date('Y-m-d H:i:s');
 
         $job->slug_title        = str_slug($request->job_title).'-'.uniqid();
-        $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $job->is_deleted    = $request->is_deleted;
 

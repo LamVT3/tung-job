@@ -17,6 +17,7 @@ class CompanyController extends Controller
     {
         $this->middleware('auth', ['except' => [
 	        'index', 'detail', 'reviewCompany', 'searchReviewCompany','resultSearchCompany'
+
         ]]);
     }
 
