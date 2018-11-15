@@ -30,7 +30,7 @@
                     @foreach($data as $item)
                         <div class="job-list" style="width: 100%">
                             <div class="thumb">
-                                <a href="{{route('job-detail', $item->slug_title)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
+                                <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{$item->company->company_logo}}" alt=""></a>
                             </div>
                             <div class="job-list-content">
                                 <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
@@ -75,21 +75,5 @@
         </div>
     </section>
     <!-- Find Job Section End -->
-
-    <!-- Start Purchase Section -->
-    <section class="section purchase" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="section-content text-center">
-                    <h1 class="title-text">
-                        Looking for a Job
-                    </h1>
-                    <p>Join thousand of employers and earn what you deserve!</p>
-                    <a href="{{ route('login') }}" class="btn btn-common">Get Started Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Purchase Section -->
 
 @endsection
