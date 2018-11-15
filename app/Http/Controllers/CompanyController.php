@@ -16,7 +16,7 @@ class CompanyController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-	        'index', 'detail'
+	        'index', 'detail', 'reviewCompany', 'searchReviewCompany','resultSearchCompany'
         ]]);
     }
 
@@ -183,5 +183,24 @@ class CompanyController extends Controller
 		return view('pages.company.review-company', compact('data'));
 	}
 
+	public function searchReviewCompany(Request $request){
+        $query = $request->get('query','');
+        $result = Company::where('company_name','LIKE','%'.$query.'%')->get();
 
+        $keyword = array();
+        foreach ($result as $value){
+            $keyword[] = $value->company_name;
+        }
+        //
+        $company_name = array_unique($keyword);
+        return response() ->json($company_name);
+    }
+
+    public function resultSearchCompany(){
+        $company_name = request('company_name');
+
+        $data = Company::searchCompany($company_name);
+
+        return view('pages.company.result-search-company', compact('data'));
+    }
 }

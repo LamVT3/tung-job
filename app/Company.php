@@ -10,4 +10,9 @@ class Company extends Eloquent implements AuthenticatableContract
 {
     use Authenticatable;
 
+    public static function searchCompany($company_name){
+        $result = Company::where('company_name','like', '%'.$company_name.'%')->paginate((int)env('APP_PAGINATE',10));
+
+        return $result;
+    }
 }

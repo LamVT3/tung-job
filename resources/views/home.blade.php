@@ -9,12 +9,6 @@
                     <div class="content">
                         @include('pages.job.search')
                     </div>
-                    <div class="popular-jobs">
-                        <b>Popular Keywords: </b>
-                        <a href="#">Web Design</a>
-                        <a href="#">Manager</a>
-                        <a href="#">Programming</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -32,7 +26,7 @@
                     @foreach($data as $item)
                     <div class="job-list" style="width: 100%">
                         <div class="thumb">
-                            <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{$item->company->company_logo}}" alt=""></a>
+                            <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{@$item->company->company_logo}}" alt=""></a>
                         </div>
                         <div class="job-list-content">
                             <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a>

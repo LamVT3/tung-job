@@ -19,6 +19,12 @@ class Job extends Eloquent implements AuthenticatableContract
         return $result;
     }
 
+    public static function getJobHaveTage($tag){
+        $result = Job::where('job_tag','like','%'.$tag.'%')->paginate((int)env('APP_PAGINATE',10));;
+
+        return $result;
+
+    }
 	public function company()
 	{
 		return $this->belongsTo(Company::class);

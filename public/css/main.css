@@ -3605,6 +3605,12 @@ em.invalid {
 .fb-comments span:first-child iframe{
   width: 100em !important;
 }
+#company-search .dropdown-menu{
+  width: 100%;
+}
 
+#search_keyword .dropdown-menu{
+  width: 100%;
+}
 
 

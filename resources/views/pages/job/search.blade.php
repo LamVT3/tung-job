@@ -1,7 +1,7 @@
 <form method="get" action="{{action('JobResultController@showResultJob')}}">
     <div class="row">
         <div class="col-md-6 col-sm-6">
-            <div class="form-group">
+            <div class="form-group" id="search_keyword">
                 <input class="form-control" id="job-keywords" type="text" name="keyword" value="{{@$name}}" placeholder="job title / keywords / company name" autocomplete="off">
                 <i class="ti-time"></i>
             </div>
@@ -11,11 +11,11 @@
                 {{--<input class="form-control" type="email" placeholder="city / province / zip code">
                 <i class="ti-location-pin"></i>--}}
                 <select  class="form-control" name="location">
-                    @foreach($locations as $location)
+{{--                    @foreach($locations as $location)--}}
                     <option value="ha noi" @if(@$location == "ha noi") selected @endif>Ha Noi</option>
                     <option value="da nang" @if(@$location == "da nang") selected @endif>Da Nang</option>
                     <option value="ho chi minh" @if(@$location == "ho chi minh") selected @endif>Ho Chi Minh</option>
-                    @endforeach
+                    {{--@endforeach--}}
                 </select>
                 <i class="ti-location-pin"></i>
             </div>
