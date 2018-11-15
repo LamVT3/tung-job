@@ -50,10 +50,10 @@
                     @foreach($data as $item)
                     <div class="job-list">
                         <div class="thumb">
-                            <a href="job-details.html"><img src="img/jobs/img-1.jpg" alt=""></a>
+                            <a href="{{route('job-detail', $item->slug_title)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
                         </div>
                         <div class="job-list-content">
-                            <h4><a href="job-details.html">{{$item->job_title}}</a>
+                            <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a>
                                 @if($item->job_type == 'Full-Time')
                                     <span class="full-time">Full-Time</span>
                                 @else
@@ -61,13 +61,28 @@
                                 @endif
 
                             </h4>
-                            <p>{{substr($item->description, 0, 240)}}</p>
+                            <p>{!! strip_tags(substr($item->description, 0, 300)) . '...' !!}</p>
                             <div class="job-tag">
                                 <div class="pull-left">
                                     <div class="meta-tag">
-                                        <span><a href="browse-categories.html"><i class="ti-brush"></i>{{$item->job_tag}}</a></span>
+                                        @if ($item->job_tag != "")
+                                            <?php $count = 1;?>
+                                            @foreach(explode(',', $item->job_tag) as $tag)
+                                                @if($count <= 3)
+                                                    <span><a class="btn btn-border btn-sm" href="#">{{$tag}}</a></span>
+                                                        <?php $count++;?>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                         <span><i class="ti-location-pin"></i>{{$item->location}}</span>
-                                        <span><i class="ti-time"></i>{{$item->job_tag}}</span>
+                                        <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
+                                        @if($difftime / 60 < 60)
+                                            <span><i class="ti-time"></i>{{floor($difftime / 60)}} minute(s) ago</span>
+                                        @elseif($difftime / 3600 < 60)
+                                            <span><i class="ti-time"></i>{{floor($difftime / 3600)}} hour(s) ago</span>
+                                        @else
+                                            <span><i class="ti-time"></i>{{floor($difftime / 84600)}} day(s) ago</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="pull-right">

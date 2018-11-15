@@ -28,7 +28,7 @@
                     <div class="header-detail">
                         <div class="header-content pull-left">
                             <h3><a href="#">{{$data->job_title}}</a></h3>
-                            <p><span>Date Posted: Feb 20, 2018{{$data->created_date}}</span></p>
+                            <p><span>Date Posted: {{date('M d, Y', strtotime($data->created_date))}}</span></p>
                             <p>Monthly Salary: <strong class="price">${{$data->salary_from}} - ${{$data->salary_to}}</strong></p>
                         </div>
                         <div class="detail-company pull-right text-right">
@@ -43,10 +43,15 @@
                         </div>
                         <div class="clearfix">
                             <div class="meta">
-                                <span><a class="btn btn-border btn-sm" href="#"><i class="ti-email"></i> Email</a></span>
-                                <span><a class="btn btn-border btn-sm" href="#"><i class="ti-info-alt"></i> Job Aleart</a></span>
-                                <span><a class="btn btn-border btn-sm" href="#"><i class="ti-save"></i> Save This job</a></span>
-                                <span><a class="btn btn-border btn-sm" href="#"><i class="ti-alert"></i> Report Abuse</a></span>
+                                @if ($data->job_tag != "")
+                                    <?php $count = 1;?>
+                                    @foreach(explode(',', $data->job_tag) as $tag)
+                                        @if($count <= 3)
+                                            <span><a class="btn btn-border btn-sm" href="#">{{$tag}}</a></span>
+                                            <?php $count++;?>
+                                        @endif
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -79,8 +79,8 @@ class JobController extends Controller
         $job->created_by    = auth()->user()->name;
         $job->created_date  = date('Y-m-d H:i:s');
 
-        $job->slug_title        = str_slug($request->job_title);
-        $job->slug_company_name = str_slug($request->company_name);
+        $job->slug_title        = str_slug($request->job_title).'-'.uniqid(6);
+        $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $job->save();
 
@@ -113,9 +113,9 @@ class JobController extends Controller
 
         $job = Job::find($id);
         if($job->is_featured && $job->is_featured == '1'){
-            $job->is_featured = 0;
+            $job->is_featured = '0';
         }else{
-            $job->is_featured = 1;
+            $job->is_featured = '1';
         }
 
         $job->save();
@@ -215,7 +215,7 @@ class JobController extends Controller
 
         $request = request();
         $job                = Job::find($request->id);
-        $job->is_deleted    = 1;
+        $job->is_deleted    = '1';
 
         $job->save();
 

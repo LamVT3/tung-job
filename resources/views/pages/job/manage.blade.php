@@ -105,6 +105,7 @@
     </div>
 
     <input type="hidden" name="delete-job-url" value="{{route('delete-job')}}">
+    <input type="hidden" name="set-featured-url" value="{{route('set-featured')}}">
     <input type="hidden" name="redirect-url" value="{{route('home')}}">
 
 @endsection

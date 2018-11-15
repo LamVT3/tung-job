@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = Job::where('is_featured', '1')
+            ->where('is_deleted', '<>', '1')
             ->orderBy('created_at', 'desc')
             ->get();
 
