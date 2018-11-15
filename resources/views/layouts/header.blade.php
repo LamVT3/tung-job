@@ -25,7 +25,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html">
+                                <a href="{{route('company-review')}}">
                                     Company Reviews
                                 </a>
                             </li>

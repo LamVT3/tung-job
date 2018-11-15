@@ -3591,3 +3591,20 @@ em.invalid {
 .text-bold{
   font-weight: bold !important;
 }
+.list-review{
+  border: 1px solid #f1f1f1;
+  padding: 15px;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.fb-comments span:first-child{
+  width: 100em !important;
+}
+
+.fb-comments span:first-child iframe{
+  width: 100em !important;
+}
+
+
+

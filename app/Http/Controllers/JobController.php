@@ -136,7 +136,7 @@ class JobController extends Controller
 
 	    $data->save();
 
-	    dd($data);
+//	    dd($data);
 
         return view('pages.job.detail', compact(
             'data'

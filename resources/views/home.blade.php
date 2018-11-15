@@ -7,25 +7,7 @@
                 <div class="col-md-12">
                     <h1>Find the job that fits your life</h1><br><h2>More than <strong>12,000</strong> jobs are waiting to Kickstart your career!</h2>
                     <div class="content">
-                        <form method="" action="">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="job title / keywords / company name">
-                                        <i class="ti-time"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control" type="email" placeholder="city / province / zip code">
-                                        <i class="ti-location-pin"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-1 col-sm-6">
-                                    <button type="button" class="btn btn-search-icon"><i class="ti-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
+                        @include('pages.job.search')
                     </div>
                     <div class="popular-jobs">
                         <b>Popular Keywords: </b>
@@ -50,7 +32,7 @@
                     @foreach($data as $item)
                     <div class="job-list" style="width: 100%">
                         <div class="thumb">
-                            <a href="{{route('job-detail', $item->slug_title)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
+                            <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{$item->company->company_logo}}" alt=""></a>
                         </div>
                         <div class="job-list-content">
                             <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a>

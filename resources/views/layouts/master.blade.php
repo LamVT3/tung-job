@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/jasny-bootstrap.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}" type="text/css">
-    <!-- Material CSS -->
-    <link rel="stylesheet" href="{{asset('css/material-kit.css')}}" type="text/css">
+
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="{{asset('fonts/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('fonts/themify-icons.css')}}">

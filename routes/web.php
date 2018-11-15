@@ -32,6 +32,9 @@ Route::group(['prefix' => 'job'], function () {
     Route::get('/', 'JobController@index')->name('all-job');
     Route::get('/create', 'JobController@showFormCreate')->name('show-create-job');
     Route::post('/create', 'JobController@create')->name('save-job');
+
+    Route::get('/results-job','JobResultController@showResultJob')->name('result-job');
+
     Route::get('/manage', 'JobController@manage')->name('manage-job');
     Route::get('/set-featured', 'JobController@set_featured')->name('set-featured');
     Route::get('/detail/{slug}', 'JobController@detail')->name('job-detail');
@@ -57,6 +60,15 @@ Route::group(['prefix' => 'user'], function () {
 	Route::get('/reset-password', 'UserController@showFormResetPassword')->name('user-show-form-reset');
 	Route::post('/reset-password', 'UserController@resetPassword')->name('user-reset-pwd');
 });
+Route::get('/search-job','JobResultController@searchJob')->name('search-job');
+
+Route::group(['prefix'=> 'company'], function (){
+    Route::get('/company-review','ReviewCompanyController@reviewCompany')->name('company-review');
+    Route::get('/overview','ReviewCompanyController@overviewCompany')->name('overview');
+});
+
+
+
 
 
 
