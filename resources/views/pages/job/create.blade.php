@@ -111,37 +111,18 @@
                             <input name="expire_date" type="text" class="form-control" placeholder="yyyy-mm-dd">
                             <p class="note">Deadline for new applicants.</p>
                         </div>
-                        <div class="divider"><h3>Company Details</h3></div>
                         <div class="form-group">
-                            <label class="control-label require_field">Company Logo</label>
-                            <input name="company_logo" type="text" class="form-control" placeholder="Enter the name of the company">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label require_field">Company Name</label>
-                            <input name="company_name" type="text" class="form-control" placeholder="Enter the name of the company">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label require_field">Company Location</label>
-                            <input name="company_location" type="text" class="form-control" placeholder="e.g.Ho Chi Minh">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label require_field">Country</label>
-                            <input name="company_country" type="text" class="form-control" placeholder="e.g.Viet Nam">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0px!important;">
-                            <label class="control-label require_field">Company Size </label>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="number" class="form-control" id="company_size_from" name="company_size_from" placeholder="From">
+                            <label class="control-label require_field">Company</label>
+                            <div class="search-company-container">
+                                <label class="styled-select">
+                                    <select name="company"  class="dropdown-product selectpicker">
+                                        <option value="">-- Select Company --</option>
+                                        @foreach($companies as $company)
+                                            <option value="{{$company->_id}}">{{$company->company_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
                             </div>
-                            <div class="form-group col-md-6">
-                                <input type="number" class="form-control" id="company_size_to" name="company_size_to" placeholder="To">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label require_field">Website <span>(optional)</span></label>
-                            <input name="company_url" type="text" class="form-control" placeholder="http://">
                         </div>
                         <button type="submit" class="btn btn-common">Submit your job</button>
                     </form>
@@ -234,31 +215,7 @@
                         required: true,
                         // alphanumeric: true
                     },
-                    company_logo: {
-                        required: true,
-                        // alphanumeric: true
-                    },
-                    company_name: {
-                        required: true,
-                        // alphanumeric: true
-                    },
-                    company_location: {
-                        required: true,
-                        // alphanumeric: true
-                    },
-                    company_country: {
-                        required: true,
-                        // alphanumeric: true
-                    },
-                    company_size_from: {
-                        required: true,
-                        // alphanumeric: true
-                    },
-                    company_size_to: {
-                        required: true,
-                        // alphanumeric: true
-                    },
-                    company_url: {
+                    company: {
                         required: true,
                         // alphanumeric: true
                     },
@@ -287,21 +244,14 @@
                 data.description    = $(this).find('[name=description]').html();
                 data.email          = $(this).find('[name=email]').val();
                 data.expire_date    = $(this).find('[name=expire_date]').val();
-                data.company_logo   = $(this).find('[name=company_logo]').val();
-                data.company_name   = $(this).find('[name=company_name]').val();
-                data.company_location   = $(this).find('[name=company_location]').val();
-                data.company_country    = $(this).find('[name=company_country]').val();
-                data.company_size_from  = $(this).find('[name=company_size_from]').val();
-                data.company_size_to    = $(this).find('[name=company_size_to]').val();
-
-                data.company_url    = $(this).find('[name=company_url]').val();
+                data.company_id     = $(this).find('[name=company]').val();
+                data.company_name   = $(this).find('[name=company] :selected').text();
 
                 if(!$(this).valid()){
                     return false;
                 }
 
                 $.post(url, data, function (data) {
-
                     console.log(data);
                     location.href = data.url;
 
@@ -309,10 +259,7 @@
                     function (err) {
                         console.log(err);
                     });
-
             })
-
-
         });
 
 

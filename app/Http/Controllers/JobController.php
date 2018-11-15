@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Job;
 use App\User;
 use Illuminate\Http\Request;
@@ -42,7 +43,11 @@ class JobController extends Controller
     public function showFormCreate()
     {
 
-        return view('pages.job.create');
+        $companies = Company::orderBy('company_name')->get();
+
+        return view('pages.job.create', compact(
+            'companies'
+        ));
     }
 
     /**
@@ -69,17 +74,12 @@ class JobController extends Controller
         $job->description   = $request->description;
         $job->email         = $request->email;
         $job->expire_date   = $request->expire_date;
-        $job->company_logo  = $request->company_logo;
+        $job->company_id    = $request->company_id;
         $job->company_name  = $request->company_name;
-        $job->company_location  = $request->company_location;
-        $job->company_country   = $request->company_country;
-        $job->company_size_from = $request->company_size_from;
-        $job->company_size_to   = $request->company_size_to;
-        $job->company_url   = $request->company_url;
         $job->created_by    = auth()->user()->name;
         $job->created_date  = date('Y-m-d H:i:s');
 
-        $job->slug_title        = str_slug($request->job_title).'-'.uniqid(6);
+        $job->slug_title        = str_slug($request->job_title).'-'.uniqid();
         $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $job->save();
@@ -156,10 +156,12 @@ class JobController extends Controller
      */
     public function showFormEdit($id)
     {
-        $data = Job::find($id);
+        $data       = Job::find($id);
+        $companies  = Company::orderBy('company_name')->get();
 
         return view('pages.job.edit', compact(
-            'data'
+            'data',
+            'companies'
         ));
     }
 
@@ -184,18 +186,13 @@ class JobController extends Controller
         $job->description   = $request->description;
         $job->email         = $request->email;
         $job->expire_date   = $request->expire_date;
-        $job->company_logo  = $request->company_logo;
+        $job->company_id    = $request->company_id;
         $job->company_name  = $request->company_name;
-        $job->company_location  = $request->company_location;
-        $job->company_country   = $request->company_country;
-        $job->company_size_from = $request->company_size_from;
-        $job->company_size_to   = $request->company_size_to;
-        $job->company_url   = $request->company_url;
         $job->created_by    = auth()->user()->name;
         $job->created_date  = date('Y-m-d H:i:s');
 
-        $job->slug_title        = str_slug($request->job_title);
-        $job->slug_company_name = str_slug($request->company_name);
+        $job->slug_title        = str_slug($request->job_title).'-'.uniqid();;
+        $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();;
 
         $job->is_deleted    = $request->is_deleted;
 
