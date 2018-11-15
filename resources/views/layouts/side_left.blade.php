@@ -8,6 +8,9 @@
             <ul class="lest item">
                 <li><a href="{{route('user-profile')}}">Jobs Applied</a></li>
             </ul>
+            <ul class="lest">
+                <li><a href="{{route('user-show-form-reset')}}">Reset Password</a></li>
+            </ul>
         </div>
     </div>
 </div>

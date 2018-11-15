@@ -43,6 +43,8 @@ Route::group(['prefix' => 'job'], function () {
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/profile', 'UserController@applications')->name('user-profile');
 	Route::get('/apply', 'UserController@apply')->name('user-apply');
+	Route::get('/reset-password', 'UserController@showFormResetPassword')->name('user-show-form-reset');
+	Route::post('/reset-password', 'UserController@resetPassword')->name('user-reset-pwd');
 });
 
 
