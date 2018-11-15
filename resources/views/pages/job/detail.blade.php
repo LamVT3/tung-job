@@ -33,11 +33,11 @@
                         </div>
                         <div class="detail-company pull-right text-right">
                             <div class="img-thum">
-                                <img class="img-responsive" src="{{$data->company_logo}}" alt="">
+                                <img class="img-responsive" src="{{$data->company->company_logo}}" alt="">
                             </div>
                             <div class="name">
                                 <h4>{{$data->company_name}}</h4>
-                                <h5>{{$data->company_location}}</h5>
+                                <h5>{{$data->company->company_location}}</h5>
                                 <p>{{$data->amount}} Current jobs openings</p>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                 <div class="modal-body">
                     <div class="modal-body">
                         <div style="text-align: center; padding: 2em 0">
-                            <img src="{{$data->company_logo}}" class="img-responsive" alt="{{$data->company_name}}">
+                            <img width="100px" height="100px" style="margin: 0 auto" src="{{$data->company->company_logo}}" class="img-responsive" alt="{{$data->company_name}}">
                             <h3>{{$data->job_title}}</h3>
                             <p>{{$data->company_name}}</p>
                         </div>
@@ -228,7 +228,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <span class="btn btn-common">Upload CV</span>
+                                    <span class="">Upload CV</span>
                                     <input type="file" class="form-control">
                                 </div>
                                 <div class="form-group center">
