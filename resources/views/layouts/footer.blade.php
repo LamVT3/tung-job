@@ -8,7 +8,7 @@
                     <div class="widget">
                         <h3 class="block-title"><img src="{{asset('img/logo.png')}}" class="img-responsive" alt="Footer Logo"></h3>
                         <div class="textwidget">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est.</p>
                         </div>
                     </div>
                 </div>
@@ -17,9 +17,6 @@
                         <h3 class="block-title">Quick Links</h3>
                         <ul class="menu">
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">License</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
                             <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
@@ -31,8 +28,6 @@
                             <li><a href="#">Android Developer</a></li>
                             <li><a href="#">Senior Accountant</a></li>
                             <li><a href="#">Frontend Developer</a></li>
-                            <li><a href="#">Junior Tester</a></li>
-                            <li><a href="#">Project Manager</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,11 +41,6 @@
                             <a class="dribble" href="https://dribbble.com/GrayGrids"><i class="ti-dribbble"></i></a>
                             <a class="linkedin" href="https://www.linkedin.com/GrayGrids"><i class="ti-linkedin"></i></a>
                         </div>
-                        <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
-                        <form class="subscribe-box">
-                            <input type="text" placeholder="Your email">
-                            <input type="submit" class="btn-system" value="Send">
-                        </form>
                     </div>
                 </div>
             </div>

@@ -3588,3 +3588,6 @@ em.invalid {
   content:" *";
   color: red;
 }
+.text-bold{
+  font-weight: bold !important;
+}
