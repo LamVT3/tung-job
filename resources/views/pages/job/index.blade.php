@@ -70,6 +70,7 @@
                 <div class="col-md-12">
                     {{$data->links()}}
                 </div>
+                </div>
             </div>
         </div>
     </section>

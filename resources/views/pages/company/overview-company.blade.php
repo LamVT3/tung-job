@@ -1,20 +1,25 @@
 @extends('layouts.master')
 
-@section('content')
-<div class="page-header" style="background: url(/img/banner1.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="breadcrumb-wrapper">
-                    <h2 class="product-title">Review Company</h2>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="ti-home"></i> Home</a></li>
-                    </ol>
+@section('top-banner')
+    <!-- Page Header Start -->
+    <div class="page-header" style="background: url({{asset('img/banner1.jpg')}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">Review Company</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="{{route('home')}}"><i class="ti-home"></i> Home</a></li>
+                            <li class="current">Review Company</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- Page Header End -->
+@endsection
+@section('content')
 
 <section class="job-detail section">
     <div class="container">
@@ -22,7 +27,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="header-detail">
                     <div class="header-content pull-left">
-                        <h1><a href="#">Topica</a></h1>
+                        <h1><a href="#">{{$data->company_name}}</a></h1>
                         <p><i class="ti-calendar"></i><span> Monday-Friday</span></p>
                         <p><i class="ti-settings"></i><span> Outsourcing</span></p>
                         <p><i class="ti-calendar"></i><span> Monday-Friday</span></p>
@@ -30,7 +35,7 @@
                     </div>
                     <div class="detail-company pull-right text-right">
                         <div class="img-thum">
-                            <img class="img-responsive" src="/img/jobs/recent-job-detail.jpg" alt="">
+                            <img class="img-responsive" width="100px" height="100px" src="{{$data->company_logo}}" alt="">
                         </div>
                         <div class="name">
                             <h4>LemonKids LLC</h4>
@@ -47,10 +52,7 @@
                 <div class="content-area">
                     <div class="clearfix">
                         <div class="box">
-                            <h4>Job Description</h4>
-                            <p>LemonKids LLC. In marketing communications, we dream it and create it. All of the company’s promotional and communication needs are completed in-house by these “creatives” in an advertising agency-based set-up. This includes everything from advertising, promotions and print production to media relations, exhibition coordination and website maintenance. Everyone from artists, writers, designers, media buyers, event coordinators, video producers/editors and public relations specialists work together to bring campaigns and product-centric promotions to life.</p>
-                            <p>If you’re a dreamer, gather up your portfolio and show us your vision. Garmin is adding one more enthusiastic individual to our in-house Communications expert team.</p>
-
+                            {!! $data->description !!}
                         </div>
                     </div>
                 </div>
@@ -58,7 +60,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="box">
                     <div id="fb-root"></div>
-                    <div class="fb-comments" data-href="http://localhost/company/overview" data-width="100%"  data-numposts="5"></div>
+                    <div class="fb-comments" data-href="{{URL::current()}}" data-width="100%"  data-numposts="5"></div>
                 </div>
 
             </div>

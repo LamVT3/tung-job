@@ -13,7 +13,7 @@ class Job extends Eloquent implements AuthenticatableContract
     public static function getResultSearch($key, $location){
 
         $result = Job::where('job_title','like', '%'.$key.'%')
-            ->orWhere('company_name','like', '%'.$key.'%')->where('location','like', '%'.$location.'%')->get();
+            ->orWhere('company_name','like', '%'.$key.'%')->where('location','like', '%'.$location.'%')->paginate((int)env('APP_PAGINATE',10));
 
 
         return $result;

@@ -98,7 +98,7 @@ class CompanyController extends Controller
     {
         $data = Company::where('slug_company_name', $slug)->first();
 
-        return view('pages.company.detail', compact(
+        return view('pages.company.overview-company', compact(
             'data'
         ));
     }
@@ -178,7 +178,10 @@ class CompanyController extends Controller
 
     }
 
-
+	public function reviewCompany(){
+		$data = Company::orderBy('created_at', 'desc')->paginate((int)env('APP_PAGINATE',10));
+		return view('pages.company.review-company', compact('data'));
+	}
 
 
 }

@@ -9,11 +9,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Company;
+
 class ReviewCompanyController
 {
     public function reviewCompany(){
 
-        return view('pages.company.review-company');
+	    $data = Company::orderBy('created_at', 'desc')->paginate((int)env('APP_PAGINATE',10));
+        return view('pages.company.review-company', compact('data'));
     }
 
     public function overviewCompany(){
