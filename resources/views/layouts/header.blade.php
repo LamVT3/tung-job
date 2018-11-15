@@ -47,6 +47,23 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#">
+                                    Companies <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="{{route('show-create-company')}}">
+                                            Add Company
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('manage-company')}}">
+                                            Manage Companies
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             @endif
                             <li>
                                 <a href="{{route('user-profile')}}">

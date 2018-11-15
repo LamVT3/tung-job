@@ -40,6 +40,17 @@ Route::group(['prefix' => 'job'], function () {
     Route::get('/delete', 'JobController@delete')->name('delete-job');
 });
 
+Route::group(['prefix' => 'company'], function () {
+	Route::get('/', 'CompanyController@index')->name('all-company');
+	Route::get('/create', 'CompanyController@showFormCreate')->name('show-create-company');
+	Route::post('/create', 'CompanyController@create')->name('save-company');
+	Route::get('/manage', 'CompanyController@manage')->name('manage-company');
+	Route::get('/detail/{slug}', 'CompanyController@detail')->name('company-detail');
+	Route::get('/edit/{id}', 'CompanyController@showFormEdit')->name('show-edit-company');
+	Route::post('/edit/{id}', 'CompanyController@edit')->name('edit-company');
+	Route::get('/delete', 'CompanyController@delete')->name('delete-company');
+});
+
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/profile', 'UserController@applications')->name('user-profile');
 	Route::get('/apply', 'UserController@apply')->name('user-apply');
