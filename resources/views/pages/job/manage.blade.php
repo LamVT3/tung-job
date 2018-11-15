@@ -26,26 +26,25 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="job-alerts-item candidates">
-                        <h3 class="alerts-title">Manage Jobs</h3>
                         <div class="alerts-list">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <p>Title</p>
+                                    <p class="text-bold">Title</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <p>Permalink</p>
+                                    <p class="text-bold">Permalink</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <p>Status</p>
+                                    <p class="text-bold">Status</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <p>Featured</p>
+                                    <p class="text-bold">Featured</p>
                                 </div>
                                 <div class="col-md-1">
-                                    <p>Edit</p>
+                                    <p class="text-bold">Edit</p>
                                 </div>
                                 <div class="col-md-1">
-                                    <p>Delete</p>
+                                    <p class="text-bold">Delete</p>
                                 </div>
                             </div>
                         </div>
@@ -64,11 +63,11 @@
 
                                 @if($item->is_deleted == '1')
                                     <div class="col-md-2 status">
-                                        <button type="button" class="btn btn-danger">Deleted</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Deleted</button>
                                     </div>
                                 @else
                                     <div class="col-md-2 status">
-                                        <button type="button" class="btn btn-info status">On-going</button>
+                                        <button type="button" class="btn btn-info status btn-sm">On-going</button>
                                     </div>
                                 @endif
 
@@ -84,11 +83,11 @@
 
                                 <div class="col-md-1">
                                     <a href="{{route('show-edit-job', $item->_id)}}" class="">
-                                    <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
+                                    <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="col-md-1">
-                                    <a class="delete_job" data-item-id="{{$item->_id}}"><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></a>
+                                    <a class="delete_job" data-item-id="{{$item->_id}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>

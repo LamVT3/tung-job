@@ -75,6 +75,7 @@ class SocialAuthController implements SocialLoginInterface
 	            $user->name     = $providerUser->getName();
 	            $user->avatar   = $providerUser->getAvatar();
 	            $user->role     = 'USER';
+	            $user->password = '';
 	            $user->save();
             }
 

@@ -1,22 +1,40 @@
 @extends('layouts.master')
 
-
+@section('top-banner')
+    <!-- Page Header Start -->
+    <div class="page-header" style="background: url({{asset('img/banner1.jpg')}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">Find Job</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="{{route('home')}}"><i class="ti-home"></i> Home</a></li>
+                            <li class="current">Find Job</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+@endsection
 @section('content')
     <!-- Find Job Section Start -->
     <section class="find-job section">
         <div class="container">
-            <h2 class="section-title">Hot Jobs</h2>
+            <h2 class="section-title">Find good a Job</h2>
             <div class="row">
                 <div class="col-md-12">
 
                     @foreach($data as $item)
-                        <div class="job-list">
+                        <div class="job-list" style="width: 100%">
                             <div class="thumb">
                                 <a href="{{route('job-detail', $item->slug_title)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
                             </div>
                             <div class="job-list-content">
                                 <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
+                                <p>{!! strip_tags(substr($item->description, 0, 300)) . '...' !!}</p>
                                 <div class="job-tag">
                                     <div class="pull-left">
                                         <div class="meta-tag">
@@ -41,9 +59,6 @@
                                         </div>
                                     </div>
                                     <div class="pull-right">
-                                        <div class="icon">
-                                            <i class="ti-heart"></i>
-                                        </div>
                                         <a href="{{route('job-detail', $item->slug_title)}}" class="btn btn-common btn-rm">Apply Job</a>
                                     </div>
                                 </div>

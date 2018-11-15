@@ -48,7 +48,7 @@
                 <div class="col-md-12">
 
                     @foreach($data as $item)
-                    <div class="job-list">
+                    <div class="job-list" style="width: 100%">
                         <div class="thumb">
                             <a href="{{route('job-detail', $item->slug_title)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
                         </div>
@@ -86,10 +86,7 @@
                                     </div>
                                 </div>
                                 <div class="pull-right">
-                                    <div class="icon">
-                                        <i class="ti-heart"></i>
-                                    </div>
-                                    <a href="job-details.html" class="btn btn-common btn-rm">Apply Job</a>
+                                    <a href="{{route('job-detail', $item->slug_title)}}" class="btn btn-common btn-rm">Apply Job</a>
                                 </div>
                             </div>
                         </div>

@@ -132,6 +132,12 @@ class JobController extends Controller
     {
         $data = Job::where('slug_title', $slug)->first();
 
+	    $data->view = $data->view+1;
+
+	    $data->save();
+
+	    dd($data);
+
         return view('pages.job.detail', compact(
             'data'
         ));
@@ -191,8 +197,8 @@ class JobController extends Controller
         $job->created_by    = auth()->user()->name;
         $job->created_date  = date('Y-m-d H:i:s');
 
-        $job->slug_title        = str_slug($request->job_title).'-'.uniqid();;
-        $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();;
+        $job->slug_title        = str_slug($request->job_title).'-'.uniqid();
+        $job->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $job->is_deleted    = $request->is_deleted;
 

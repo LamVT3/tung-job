@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="breadcrumb-wrapper">
-                        <h2 class="product-title">Add new a company</h2>
+                        <h2 class="product-title">Add New A Company</h2>
                         <ol class="breadcrumb">
                             <li><a href="{{route('home')}}"><i class="ti-home"></i> Home</a></li>
-                            <li class="current">Add new a company</li>
+                            <li class="current">Add New A Company</li>
                         </ol>
                     </div>
                 </div>

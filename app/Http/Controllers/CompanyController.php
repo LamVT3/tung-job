@@ -68,7 +68,7 @@ class CompanyController extends Controller
         $company->company_url   = $request->company_url;
         $company->created_by    = auth()->user()->name;
         $company->created_date  = date('Y-m-d H:i:s');
-        $company->slug_company_name = str_slug($request->company_name);
+	    $company->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $company->save();
 
@@ -150,7 +150,7 @@ class CompanyController extends Controller
         $company->company_url   = $request->company_url;
         $company->created_by    = auth()->user()->name;
         $company->created_date  = date('Y-m-d H:i:s');
-        $company->slug_company_name = str_slug($request->company_name);
+	    $company->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $company->is_deleted    = $request->is_deleted;
 
