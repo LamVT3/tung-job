@@ -3,6 +3,7 @@
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/material.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/material-kit.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/color-switcher.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.parallax.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.slicknav.js')}}"></script>

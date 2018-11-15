@@ -12,10 +12,10 @@
                     @foreach($data as $item)
                         <div class="job-list">
                             <div class="thumb">
-                                <a href="job-details.html"><img src="img/jobs/img-1.jpg" alt=""></a>
+                                <a href="{{route('job-detail', $item->_id)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
                             </div>
                             <div class="job-list-content">
-                                <h4><a href="job-details.html">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
+                                <h4><a href="{{route('job-detail', $item->_id)}}">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
                                 <div class="job-tag">
                                     <div class="pull-left">
@@ -29,12 +29,11 @@
                                         <div class="icon">
                                             <i class="ti-heart"></i>
                                         </div>
-                                        <a href="job-details.html" class="btn btn-common btn-rm">More Detail</a>
+                                        <a href="{{route('job-detail', $item->_id)}}" class="btn btn-common btn-rm">Apply Job</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     @endforeach
 
 

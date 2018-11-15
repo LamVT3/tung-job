@@ -16,21 +16,26 @@ class JobResultController
 {
     public function showResultJob()
     {
-        $data = Job::all();
+        $name = request('keyword');
+        $location = request('location');
 
+        $data = Job::getResultSearch($name,$location);
 
-        return view('pages.job.jobresults', compact('data'));
+        return view('pages.job.jobresults', compact('data', 'name','location'));
     }
 
     public function searchJob(Request $request)
     {
         $query = $request->get('query','');
         $result = Job::where('job_title','LIKE','%'.$query.'%')->get();
+
         $keyword = array();
         foreach ($result as $value){
             $keyword[] = $value->job_title;
         }
-        return response() ->json($keyword);
+        //
+        $result_key = array_unique($keyword);
+        return response() ->json($result_key);
     }
 
 

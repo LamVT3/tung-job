@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Job;
 use App\User;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -15,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,10 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Job::where('is_featured', '1')->get();
 
-        return view('home', compact(
-            'data'
-        ));
+        return view('pages.profile.index');
     }
 }

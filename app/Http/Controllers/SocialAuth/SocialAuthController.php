@@ -74,7 +74,6 @@ class SocialAuthController implements SocialLoginInterface
 	            $user->username = explode('@', $providerUser->getEmail())[0];
 	            $user->name     = $providerUser->getName();
 	            $user->avatar   = $providerUser->getAvatar();
-	            $user->active   = 0;
 	            $user->role     = 'USER';
 	            $user->save();
             }

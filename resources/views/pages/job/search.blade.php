@@ -1,36 +1,25 @@
 <form method="get" action="{{action('JobResultController@showResultJob')}}">
     <div class="row">
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-6 col-sm-6">
             <div class="form-group">
-                <input class="form-control" name="keyword" id="job-keywords"type="text" placeholder="job title / keywords / company name">
+                <input class="form-control" id="job-keywords" type="text" name="keyword" value="{{@$name}}" placeholder="job title / keywords / company name" autocomplete="off">
                 <i class="ti-time"></i>
             </div>
         </div>
         <div class="col-md-4 col-sm-6">
             <div class="form-group">
-                <input class="form-control" id="job-province" type="email" placeholder="city / province / zip code">
+                {{--<input class="form-control" type="email" placeholder="city / province / zip code">
+                <i class="ti-location-pin"></i>--}}
+                <select  class="form-control" name="location">
+                    <option value="ha-noi" @if(@$location == "ha-noi") selected @endif>Ha Noi</option>
+                    <option value="da-nang" @if(@$location == "da-nang") selected @endif>Da Nang</option>
+                    <option value="ho-chi-minh" @if(@$location == "ho-chi-minh") selected @endif>Ho Chi Minh</option>
+                </select>
                 <i class="ti-location-pin"></i>
             </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="search-category-container">
-                <label class="styled-select">
-                    <select class="dropdown-product selectpicker">
-                        <option>All Categories</option>
-                        <option>Finance</option>
-                        <option>IT & Engineering</option>
-                        <option>Education/Training</option>
-                        <option>Art/Design</option>
-                        <option>Sale/Markting</option>
-                        <option>Healthcare</option>
-                        <option>Science</option>
-                        <option>Food Services</option>
-                    </select>
-                </label>
-            </div>
-        </div>
         <div class="col-md-1 col-sm-6">
-            <button type="submit" class="btn btn-search-icon"><i class="ti-search"></i></button>
+            <button type="submit " class="btn btn-search-icon"><i class="ti-search"></i></button>
         </div>
     </div>
 </form>
