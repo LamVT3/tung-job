@@ -42,7 +42,9 @@ Route::group(['prefix' => 'job'], function () {
     Route::post('/edit/{id}', 'JobController@edit')->name('edit-job');
     Route::get('/delete', 'JobController@delete')->name('delete-job');
 
-    Route::get('/job-tag', 'JobResultController@showResultJobTag')->name('result-search-tag');
+	Route::post('/apply/{slug}', 'JobController@apply')->name('job-apply');
+
+	Route::get('/job-tag', 'JobResultController@showResultJobTag')->name('result-search-tag');
 
 });
 
@@ -62,7 +64,6 @@ Route::group(['prefix' => 'company'], function () {
 
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/profile', 'UserController@applications')->name('user-profile');
-	Route::get('/apply', 'UserController@apply')->name('user-apply');
 	Route::get('/reset-password', 'UserController@showFormResetPassword')->name('user-show-form-reset');
 	Route::post('/reset-password', 'UserController@resetPassword')->name('user-reset-pwd');
 });
