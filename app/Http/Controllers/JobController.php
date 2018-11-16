@@ -83,7 +83,7 @@ class JobController extends Controller
 
         $job->save();
 
-        return response()->json(['type' => 'success', 'url' => route('home'), 'message' => 'Job has been created!']);
+        return response()->json(['type' => 'success', 'url' => route('manage-job'), 'message' => 'Job has been created!']);
     }
 
     /**
@@ -129,16 +129,23 @@ class JobController extends Controller
      */
     public function detail($slug)
     {
-        $data = Job::where('slug_title', $slug)->first();
+        $job = Job::where('slug_title', $slug)->first();
+        $job->view = $job->view+1;
+        $job->save();
 
-	    $data->view = $data->view+1;
+	    $related = Job::where('job_tag', 'like', '%'.$job->job_tag.'%')
+            ->take(5)
+            ->get();
 
-	    $data->save();
-
-//	    dd($data);
+	    $featured = Job::where('company_id', $job->company_id)
+            ->where('is_featured', '1')
+            ->where('slug_title', '<>', $slug)
+            ->orderBy('view', 'desc')->first();
 
         return view('pages.job.detail', compact(
-            'data'
+            'job',
+            'related',
+            'featured'
         ));
     }
 
@@ -196,7 +203,7 @@ class JobController extends Controller
         $job->created_by    = auth()->user()->name;
         $job->created_date  = date('Y-m-d H:i:s');
 
-        $job->slug_title        = str_slug($request->job_title).'-'.uniqid();
+        $job->slug_title    = str_slug($request->job_title).'-'.uniqid();
 
         $job->is_deleted    = $request->is_deleted;
 

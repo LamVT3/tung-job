@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Closing Date <span>(optional)</span></label>
-                            <input name="expire_date" type="text" class="form-control" placeholder="yyyy-mm-dd" value="{{$data->expire_date}}">
+                            <input name="expire_date" type="text" class="form-control" placeholder="dd-mm-yyyy" value="{{$data->expire_date}}">
                             <p class="note">Deadline for new applicants.</p>
                         </div>
                         <div class="form-group">
@@ -125,6 +125,9 @@
     <link rel="stylesheet" href="{{asset('css/summernote.css')}}" type="text/css">
 
     <script type="text/javascript" src="{{asset('js/summernote.js')}}"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
     <script>
         $(document).ready(function() {
             $('#description').summernote({
@@ -226,7 +229,7 @@
                 data.salary_from    = $(this).find('[name=salary_from]').val();
                 data.salary_to      = $(this).find('[name=salary_to]').val();
                 data.job_tag        = $(this).find('[name=job_tag]').val();
-                data.description    = $(this).find('[name=description]').html();
+                data.description    = $(this).find('[class=note-editable]').html();
                 data.email          = $(this).find('[name=email]').val();
                 data.expire_date    = $(this).find('[name=expire_date]').val();
                 data.company_id     = $(this).find('[name=company]').val();
@@ -245,9 +248,18 @@
                     function (err) {
                         console.log(err);
                     });
-
             })
 
+            $('input[name="expire_date"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1901,
+                maxYear: parseInt(moment().format('YYYY'),10),
+                locale: {
+                    format: 'DD-MM-YYYY'
+                }
+            }, function(start, end, label) {
+            });
 
         });
 

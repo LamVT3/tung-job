@@ -30,7 +30,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label class="control-label require_field">Company Logo</label>
-                            <input id="company_logo" name="company_logo" type="file" class="form-control" placeholder="Enter the url logo  of the company" value="{{$data->company_logo}}">
+                            <input id="company_logo" name="company_logo" type="file" class="form-control" placeholder="Enter the url logo  of the company" value="">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Company Name</label>

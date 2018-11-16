@@ -25,13 +25,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Job::where('is_featured', '1')
+        $featured_jobs = Job::where('is_featured', '1')
             ->where('is_deleted', '<>', '1')
             ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+
+        $hot_jobs = Job::where('is_deleted', '<>', '1')
+            ->orderBy('view', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->take(5)
             ->get();
 
         return view('home', compact(
-            'data'
+            'featured_jobs',
+            'hot_jobs'
         ));
     }
 }

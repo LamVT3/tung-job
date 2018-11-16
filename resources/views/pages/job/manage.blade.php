@@ -65,6 +65,10 @@
                                     <div class="col-md-2 status">
                                         <button type="button" class="btn btn-danger btn-sm">Deleted</button>
                                     </div>
+                                @elseif(strtotime(date('Y-m-d')) > strtotime($item->expire_date))
+                                    <div class="col-md-2 expired">
+                                        <button type="button" class="btn btn-secondary btn-sm">Expired</button>
+                                    </div>
                                 @else
                                     <div class="col-md-2 status">
                                         <button type="button" class="btn btn-info status btn-sm">On-going</button>
