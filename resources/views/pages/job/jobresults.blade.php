@@ -21,7 +21,9 @@
             <h2 class="section-title">Results</h2>
             <div class="row">
                 <div class="col-md-12">
-
+                    @if(count($data)==0)
+                        <h4>The job you're looking for doesn't exist</h4>
+                    @else
                     @foreach($data as $item)
                         <div class="job-list" style="width: 100%">
                             <div class="thumb">
@@ -41,16 +43,16 @@
                                     <div class="pull-left">
                                         <div class="meta-tag">
                                             @if ($item->job_tag != "")
-								                <?php $count = 1;?>
+                                                <?php $count = 1;?>
                                                 @foreach(explode(',', $item->job_tag) as $tag)
                                                     @if($count <= 3)
                                                         <span><a class="btn btn-border btn-sm" href="#">{{$tag}}</a></span>
-										                <?php $count++;?>
+                                                        <?php $count++;?>
                                                     @endif
                                                 @endforeach
                                             @endif
                                             <span><i class="ti-location-pin"></i>{{$item->location}}</span>
-							                <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
+                                            <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
                                             @if($difftime / 60 < 60)
                                                 <span><i class="ti-time"></i>{{floor($difftime / 60)}} minute(s) ago</span>
                                             @elseif($difftime / 3600 < 60)
@@ -68,10 +70,12 @@
                         </div>
 
                     @endforeach
-                        <br>
-                        {{$data->links()}}
-                        <br>
-                        <br>
+                    <br>
+                    {{$data->appends(request()->input())->links()}}
+                    <br>
+                    <br>
+                    @endif
+
                 </div>
             </div>
         </div>

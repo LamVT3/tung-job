@@ -29,7 +29,8 @@
                     <div class="header-detail">
                         <div class="header-content pull-left">
                             <h1><a href="#">{{$data->company_name}}</a></h1>
-                            <h5><i class="ti-user"></i><span> {{$data->company_size_from}} - {{$data->company_size_to}}</span></h5>
+                            <h5 style="margin-top: 5px"><i class="ti-user"></i><span> {{$data->company_size_from}} - {{$data->company_size_to}}</span></h5>
+                            <h5 style="margin-top: 5px"><i class="ti-link"></i> <a href="{{$data->company_url}}">Visit Company</a></h5>
                         </div>
                         <div class="detail-company pull-right text-right">
                             <div class="img-thum">
