@@ -41,6 +41,9 @@ Route::group(['prefix' => 'job'], function () {
     Route::get('/edit/{id}', 'JobController@showFormEdit')->name('show-edit-job');
     Route::post('/edit/{id}', 'JobController@edit')->name('edit-job');
     Route::get('/delete', 'JobController@delete')->name('delete-job');
+
+    Route::get('/job-tag', 'JobResultController@showResultJobTag')->name('result-search-tag');
+
 });
 
 Route::group(['prefix' => 'company'], function () {
@@ -54,6 +57,7 @@ Route::group(['prefix' => 'company'], function () {
 	Route::get('/delete', 'CompanyController@delete')->name('delete-company');
 
 	Route::get('/','CompanyController@reviewCompany')->name('company-review');
+	Route::get('/result_search', 'CompanyController@resultSearchCompany')->name('result-company');
 });
 
 Route::group(['prefix' => 'user'], function () {
@@ -64,7 +68,7 @@ Route::group(['prefix' => 'user'], function () {
 });
 Route::get('/search-job','JobResultController@searchJob')->name('search-job');
 
-
+Route::get('/search_company', 'CompanyController@searchReviewCompany') -> name('search-company');
 
 
 

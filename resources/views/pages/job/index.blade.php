@@ -30,7 +30,7 @@
                     @foreach($data as $item)
                         <div class="job-list" style="width: 100%">
                             <div class="thumb">
-                                <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{$item->company->company_logo}}" alt=""></a>
+                                <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{asset('images/'.$item->company->company_logo)}}" alt=""></a>
                             </div>
                             <div class="job-list-content">
                                 <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
@@ -42,7 +42,7 @@
                                                 <?php $count = 1;?>
                                                 @foreach(explode(',', $item->job_tag) as $tag)
                                                     @if($count <= 3)
-                                                        <span><a class="btn btn-border btn-sm" href="#">{{$tag}}</a></span>
+                                                        <span><a class="btn btn-border btn-sm" href="{{route('result-search-tag')}}?tag={{$tag}}">{{$tag}}</a></span>
                                                         <?php $count++;?>
                                                     @endif
                                                 @endforeach

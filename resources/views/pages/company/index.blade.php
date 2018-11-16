@@ -12,7 +12,7 @@
                     @foreach($data as $item)
                         <div class="job-list">
                             <div class="thumb">
-                                <a href="{{route('job-detail', $item->_id)}}"><img src="img/jobs/img-1.jpg" alt=""></a>
+                                <a href="{{route('job-detail', $item->_id)}}"><img src="{{asset('images/'.$item->company_logo)}}" alt=""></a>
                             </div>
                             <div class="job-list-content">
                                 <h4><a href="{{route('job-detail', $item->_id)}}">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
@@ -35,6 +35,7 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
 
 
                 <div class="col-md-12">

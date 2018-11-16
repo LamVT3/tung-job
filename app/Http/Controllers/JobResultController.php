@@ -21,10 +21,17 @@ class JobResultController
 
         $data = Job::getResultSearch($name,$location);
 
-
         return view('pages.job.jobresults', compact('data', 'name','location'));
     }
 
+    public function showResultJobTag()
+    {
+
+        $tag = request('tag');
+        $data = Job::getJobHaveTage($tag);
+
+        return view('pages.job.jobresult-tag', compact('data'));
+    }
     public function searchJob(Request $request)
     {
         $query = $request->get('query','');

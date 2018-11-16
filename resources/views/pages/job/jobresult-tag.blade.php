@@ -1,19 +1,22 @@
 @extends('layouts.master')
-
 @section('top-banner')
-    <div class="search-container">
+    <!-- Page Header Start -->
+    <div class="page-header" style="background: url({{asset('img/banner1.jpg')}});">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="content">
-                        @include('pages.job.search')
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">Results</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="{{route('home')}}"><i class="ti-home"></i> Home</a></li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Page Header End -->
 @endsection
-
 @section('content')
     <!-- Find Job Section Start -->
     <section class="find-job section">
@@ -41,16 +44,16 @@
                                     <div class="pull-left">
                                         <div class="meta-tag">
                                             @if ($item->job_tag != "")
-								                <?php $count = 1;?>
+		                                        <?php $count = 1;?>
                                                 @foreach(explode(',', $item->job_tag) as $tag)
                                                     @if($count <= 3)
-                                                        <span><a class="btn btn-border btn-sm" href="#">{{$tag}}</a></span>
-										                <?php $count++;?>
+                                                        <span><a class="btn btn-border btn-sm" href="{{route('result-search-tag')}}?tag={{$tag}}">{{$tag}}</a></span>
+				                                        <?php $count++;?>
                                                     @endif
                                                 @endforeach
                                             @endif
                                             <span><i class="ti-location-pin"></i>{{$item->location}}</span>
-							                <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
+                                            <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
                                             @if($difftime / 60 < 60)
                                                 <span><i class="ti-time"></i>{{floor($difftime / 60)}} minute(s) ago</span>
                                             @elseif($difftime / 3600 < 60)
@@ -68,10 +71,10 @@
                         </div>
 
                     @endforeach
-                        <br>
-                        {{$data->links()}}
-                        <br>
-                        <br>
+                    <br>
+                        {{$data->appends(request()->input())->links()}}
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>

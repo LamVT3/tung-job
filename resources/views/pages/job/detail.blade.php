@@ -44,11 +44,11 @@
                         <div class="clearfix">
                             <div class="meta">
                                 @if ($data->job_tag != "")
-                                    <?php $count = 1;?>
+		                            <?php $count = 1;?>
                                     @foreach(explode(',', $data->job_tag) as $tag)
                                         @if($count <= 3)
-                                            <span><a class="btn btn-border btn-sm" href="#">{{$tag}}</a></span>
-                                            <?php $count++;?>
+                                            <span><a class="btn btn-border btn-sm" href="{{route('result-search-tag')}}?tag={{$tag}}">{{$tag}}</a></span>
+				                            <?php $count++;?>
                                         @endif
                                     @endforeach
                                 @endif
@@ -209,7 +209,7 @@
                 <div class="modal-body">
                     <div class="modal-body">
                         <div style="text-align: center; padding: 2em 0">
-                            <img width="100px" height="100px" style="margin: 0 auto" src="{{$data->company->company_logo}}" class="img-responsive" alt="{{$data->company_name}}">
+                            <img width="100px" height="100px" style="margin: 0 auto" src="{{asset('images/'.$data->company->company_logo)}}" class="img-responsive" alt="{{$data->company_name}}">
                             <h3>{{$data->job_title}}</h3>
                             <p>{{$data->company_name}}</p>
                         </div>
