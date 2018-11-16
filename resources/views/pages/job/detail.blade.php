@@ -154,7 +154,7 @@
                                 </ul>
                             </div>
 
-                            @if(count($featured) > 0)
+                            @if($featured)
                             <div class="box">
                                 <h2 class="small-title">Featured Jobs</h2>
                                 <div class="thumb">

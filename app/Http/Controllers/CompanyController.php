@@ -144,11 +144,15 @@ class CompanyController extends Controller
         $company = Company::find($id);
         $request = request();
 
-	    $company_logo = time().'.'.$request->company_logo->getClientOriginalExtension();
+        if ($request->company_logo)
+        {
+	        $company_logo = time().'.'.$request->company_logo->getClientOriginalExtension();
+	        $company->company_logo  = $company_logo;
+	        $request->company_logo->move(public_path('images'), $company_logo);
+        }
 
         $company->description   = $request->description;
         $company->email         = $request->email;
-        $company->company_logo  = $company_logo;
         $company->company_name  = $request->company_name;
         $company->company_location  = $request->company_location;
         $company->company_country   = $request->company_country;
@@ -160,8 +164,6 @@ class CompanyController extends Controller
 	    $company->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $company->is_deleted    = $request->is_deleted;
-
-	    $request->company_logo->move(public_path('images'), $company_logo);
 
         $company->save();
 

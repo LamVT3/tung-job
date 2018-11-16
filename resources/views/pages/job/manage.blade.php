@@ -67,7 +67,7 @@
                                     </div>
                                 @elseif(strtotime(date('Y-m-d')) > strtotime($item->expire_date))
                                     <div class="col-md-2 expired">
-                                        <button type="button" class="btn btn-secondary btn-sm">Expired</button>
+                                        <button type="button" class="btn btn-warning btn-sm">Expired</button>
                                     </div>
                                 @else
                                     <div class="col-md-2 status">
