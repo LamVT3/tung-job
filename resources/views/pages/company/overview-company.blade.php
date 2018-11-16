@@ -35,7 +35,7 @@
                     </div>
                     <div class="detail-company pull-right text-right">
                         <div class="img-thum">
-                            <img class="img-responsive" width="100px" height="100px" src="{{$data->company_logo}}" alt="">
+                            <img class="img-responsive" width="100px" height="100px" src="{{asset('images/'.$item->company_logo)}}" alt="">
                         </div>
                         <div class="name">
                             <h4>LemonKids LLC</h4>

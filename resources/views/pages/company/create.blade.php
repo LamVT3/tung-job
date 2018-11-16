@@ -30,7 +30,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label class="control-label require_field">Company Logo</label>
-                            <input name="company_logo" type="text" class="form-control" placeholder="Enter the url logo of the company">
+                            <input id="company_logo" name="company_logo" type="file" class="form-control" placeholder="Enter the url logo  of the company" value="{{$data->company_logo}}">
                         </div>
                         <div class="form-group">
                             <label class="control-label require_field">Company Name</label>
@@ -186,13 +186,14 @@
 
             $('#form-create-company').submit(function (e) {
                 e.preventDefault();
+                var file_data = $('#company_logo').prop('files')[0];
+                var data = new FormData($(this)[0]);
                 var url             = $('input[name=save-company-url]').val();
                 var redirect_url    = $('input[name=redirect-url]').val();
-                var data = {};
                 data._token         = $(this).find('[name=_token]').val();
                 data.description    = $(this).find('[name=description]').html();
                 data.email          = $(this).find('[name=email]').val();
-                data.company_logo   = $(this).find('[name=company_logo]').val();
+                data.company_logo   = file_data;
                 data.company_name   = $(this).find('[name=company_name]').val();
                 data.company_location   = $(this).find('[name=company_location]').val();
                 data.company_country    = $(this).find('[name=company_country]').val();
@@ -205,15 +206,18 @@
                     return false;
                 }
 
-                $.post(url, data, function (data) {
-
-                    console.log(data);
-                    location.href = data.url;
-
-                }).fail(
-                    function (err) {
-                        console.log(err);
-                    });
+                $.ajax({
+                    url:url,
+                    type: "POST",
+                    data: data,
+                    contentType:false,
+                    cache: false,
+                    processData:false,
+                    success:function (rs) {
+                        console.log(rs);
+                        location.href = rs.url;
+                    }
+                });
 
             })
 

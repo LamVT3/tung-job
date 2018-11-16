@@ -55,11 +55,13 @@ class CompanyController extends Controller
         if(auth()->user()->role !== "ADMIN") return redirect()->route('home');
         $request = request();
 
-        $company = new Company();
+	    $company_logo = time().'.'.$request->company_logo->getClientOriginalExtension();
+
+	    $company = new Company();
 
         $company->email   = $request->email;
         $company->description   = $request->description;
-        $company->company_logo  = $request->company_logo;
+	    $company->company_logo  = $company_logo;
         $company->company_name  = $request->company_name;
         $company->company_location  = $request->company_location;
         $company->company_country   = $request->company_country;
@@ -70,7 +72,9 @@ class CompanyController extends Controller
         $company->created_date  = date('Y-m-d H:i:s');
 	    $company->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
-        $company->save();
+	    $request->company_logo->move(public_path('images'), $company_logo);
+
+	    $company->save();
 
         return response()->json(['type' => 'success', 'url' => route('home'), 'message' => 'Company has been created!']);
     }
@@ -139,9 +143,11 @@ class CompanyController extends Controller
         $company = Company::find($id);
         $request = request();
 
+	    $company_logo = time().'.'.$request->company_logo->getClientOriginalExtension();
+
         $company->description   = $request->description;
         $company->email         = $request->email;
-        $company->company_logo  = $request->company_logo;
+        $company->company_logo  = $company_logo;
         $company->company_name  = $request->company_name;
         $company->company_location  = $request->company_location;
         $company->company_country   = $request->company_country;
@@ -153,6 +159,8 @@ class CompanyController extends Controller
 	    $company->slug_company_name = str_slug($request->company_name).'-'.uniqid();
 
         $company->is_deleted    = $request->is_deleted;
+
+	    $request->company_logo->move(public_path('images'), $company_logo);
 
         $company->save();
 

@@ -57,7 +57,7 @@
                                 </div>
 
                                 <div class="col-md-2">
-                                    <img width="50px" height="50px" src="{{$item->company_logo}}" alt="{{$item->company_name}}">
+                                    <img width="50px" height="50px" src="{{asset('images/'.$item->company_logo)}}" alt="{{$item->company_name}}">
                                 </div>
 
                                 <div class="col-md-2">
