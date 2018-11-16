@@ -109,7 +109,25 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">Delete</label>
+                            <div class="">
+                                <label class="styled-select">
+                                    <select name="is_deleted"  class="dropdown-product selectpicker">
+                                        @if($data->is_deleted == '1')
+                                            <option value="1" selected>YES</option>
+                                            <option value="0">NO</option>
+                                        @else
+                                            <option value="1">YES</option>
+                                            <option value="0" selected>NO</option>
+                                        @endif
+
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-common">Save your job</button>
+                        <a href="{{route('manage-job')}}" class="btn btn-common">Back</a>
                     </form>
                 </div>
             </div>

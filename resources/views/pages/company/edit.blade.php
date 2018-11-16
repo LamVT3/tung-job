@@ -68,7 +68,8 @@
                             <label class="control-label require_field">Website </label>
                             <input name="company_url" type="text" class="form-control" placeholder="http://" value="{{$data->company_url}}">
                         </div>
-                        <button type="submit" class="btn btn-common">Save your job</button>
+                        <button type="submit" class="btn btn-common">Save your company</button>
+                        <a href="{{route('manage-company')}}" class="btn btn-common">Back</a>
                     </form>
                 </div>
             </div>
