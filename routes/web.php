@@ -49,7 +49,6 @@ Route::group(['prefix' => 'job'], function () {
 });
 
 Route::group(['prefix' => 'company'], function () {
-	Route::get('/', 'CompanyController@index')->name('all-company');
 	Route::get('/create', 'CompanyController@showFormCreate')->name('show-create-company');
 	Route::post('/create', 'CompanyController@create')->name('save-company');
 	Route::get('/manage', 'CompanyController@manage')->name('manage-company');
