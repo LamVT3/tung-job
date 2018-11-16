@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\ApplyJob;
 use App\Company;
 use App\Job;
+use App\Mail\Apply;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
@@ -17,7 +20,7 @@ class JobController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-	        'index', 'detail'
+	        'index', 'detail', 'apply'
         ]]);
     }
 
@@ -231,7 +234,34 @@ class JobController extends Controller
 
     }
 
+	public function apply($job_slug){
 
+		$name = \request('name');
+		$email = \request('email');
+		$about = \request('about');
+		$file = \request('file_cv');
+
+		$job = Job::where('slug_title', $job_slug)->first();
+
+		$data = ['job' => $job, 'name'=> $name, 'email'=> $email, 'about'=> $about];
+
+		if ($job && $file){
+			Mail::to($job->email)->send(new Apply($file, $data));
+
+			$apply = new ApplyJob();
+			$apply->job_id = $job->_id;
+			$apply->name = $name;
+			$apply->email = $email;
+			$apply->about = $about;
+			$apply->status = 'Sent';
+			$apply->save();
+
+			return redirect()->back()->with('msg_apply','Apply job successfully!');
+		}
+
+		return redirect()->back()->with('msg_error','Error! Try again, please!');
+
+	}
 
 
 }

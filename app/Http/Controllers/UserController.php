@@ -26,18 +26,6 @@ class UserController extends Controller
 		return view('pages.profile.applications', compact('jobs'));
 	}
 
-	public function apply(){
-		$data = ['foo' => 'baz'];
-
-		Mail::send('emails.apply', $data, function($message)
-		{
-			$message->to('mail@domain.net');
-			$message->subject('Welcome to Laravel');
-			$message->from('sender@domain.net');
-			$message->attach('/public/upload/pdf-test.pdf');
-		});
-	}
-
 	public function showFormResetPassword(){
 		return view('pages.profile.reset_pwd');
 	}
