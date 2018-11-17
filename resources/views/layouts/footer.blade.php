@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="site-info text-center">
-                        Shared by <i class="fa fa-love"></i><a href="#">BootstrapThemes</a>
+                        © B4USOLUTION. All Rights Reserved.
                     </div>
                 </div>
             </div>
