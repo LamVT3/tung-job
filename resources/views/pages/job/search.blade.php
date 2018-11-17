@@ -10,7 +10,7 @@
             <div class="form-group">
                 {{--<input class="form-control" type="email" placeholder="city / province / zip code">
                 <i class="ti-location-pin"></i>--}}
-                <select  class="form-control" name="location">
+                <select  class="form-control" name="location" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;">
                     <option value="ha noi" @if(@$location == "ha noi") selected @endif>Ha Noi</option>
                     <option value="da nang" @if(@$location == "da nang") selected @endif>Da Nang</option>
                     <option value="ho chi minh" @if(@$location == "ho chi minh") selected @endif>Ho Chi Minh</option>
