@@ -3613,4 +3613,24 @@ em.invalid {
   width: 100%;
 }
 
+#list-company-review .panel-heading .panel-title{
+  font-size: 16px !important;
+  line-height: 0px !important;
+  margin: 0px !important;
+}
+
+#list-company-review .panel-heading{
+  display: none;
+}
+#list-company-review .panel-body{
+  margin: 0px !important;
+  padding: 0px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 25px;
+  -webkit-line-clamp: 3;
+  height: 75px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
 

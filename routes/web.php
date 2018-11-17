@@ -42,12 +42,13 @@ Route::group(['prefix' => 'job'], function () {
     Route::post('/edit/{id}', 'JobController@edit')->name('edit-job');
     Route::get('/delete', 'JobController@delete')->name('delete-job');
 
-    Route::get('/job-tag', 'JobResultController@showResultJobTag')->name('result-search-tag');
+	Route::post('/apply/{slug}', 'JobController@apply')->name('job-apply');
+
+	Route::get('/job-tag', 'JobResultController@showResultJobTag')->name('result-search-tag');
 
 });
 
 Route::group(['prefix' => 'company'], function () {
-	Route::get('/', 'CompanyController@index')->name('all-company');
 	Route::get('/create', 'CompanyController@showFormCreate')->name('show-create-company');
 	Route::post('/create', 'CompanyController@create')->name('save-company');
 	Route::get('/manage', 'CompanyController@manage')->name('manage-company');
@@ -62,7 +63,6 @@ Route::group(['prefix' => 'company'], function () {
 
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/profile', 'UserController@applications')->name('user-profile');
-	Route::get('/apply', 'UserController@apply')->name('user-apply');
 	Route::get('/reset-password', 'UserController@showFormResetPassword')->name('user-show-form-reset');
 	Route::post('/reset-password', 'UserController@resetPassword')->name('user-reset-pwd');
 });

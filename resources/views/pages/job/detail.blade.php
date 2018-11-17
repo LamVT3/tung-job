@@ -25,6 +25,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
+                    @if(session('msg_apply'))
+                        <label for="" style="width: 100%" class="alert alert-dismissible alert-success">{{session('msg_apply')}}</label>
+                    @elseif(session('msg_error'))
+                        <label for="" style="width: 100%" class="alert alert-dismissible alert-danger">{{session('msg_error')}}</label>
+                    @endif
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="header-detail">
                         <div class="header-content pull-left">
                             <h3><a href="#">{{$job->job_title}}</a></h3>
@@ -154,7 +161,7 @@
                                 </ul>
                             </div>
 
-                            @if(count($featured) > 0)
+                            @if($featured)
                             <div class="box">
                                 <h2 class="small-title">Featured Jobs</h2>
                                 <div class="thumb">
@@ -192,22 +199,23 @@
                             <p>{{$job->company_name}}</p>
                         </div>
                         <div class="page-login-form register">
-                            <form class="login-form" method="post">
+                            <form class="login-form" method="post" enctype="multipart/form-data" action="{{route('job-apply', $job->slug_title)}}">
+                                {{csrf_field()}}
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                    <input type="text" value="Tu Thanh Tung" name="name" class="form-control" placeholder="Your Name" required="">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required="">
+                                    <input type="email" value="tuthanhtungit@gmail.com" name="email" class="form-control" placeholder="Your Email" required="">
                                 </div>
 
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="About You / Paste your CV"></textarea>
+                                    <textarea class="form-control" name="about" placeholder="About You / Paste your CV">Hello</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <span class="">Upload CV</span>
-                                    <input type="file" class="form-control">
+                                    <input type="file" name="file_cv" class="form-control" required>
                                 </div>
                                 <div class="form-group center">
                                     <button type="submit" class="btn btn-common"> Apply Now </button>

@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Job;
+use App\Company;
 use Illuminate\Http\Request;
 
 class JobResultController
@@ -36,10 +37,15 @@ class JobResultController
     {
         $query = $request->get('query','');
         $result = Job::where('job_title','LIKE','%'.$query.'%')->get();
+        $result_company = Company::where('company_name','LIKE','%'.$query.'%')->get();
 
         $keyword = array();
         foreach ($result as $value){
             $keyword[] = $value->job_title;
+        }
+
+        foreach ($result_company as $value){
+            $keyword[] = $value->company_name;
         }
         //
         $result_key = array_unique($keyword);

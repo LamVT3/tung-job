@@ -77,7 +77,7 @@
     </div>
     </section>
 
-    <input type="hidden" name="save-job-url" value="{{route('edit-company', $data->_id)}}">
+    <input type="hidden" name="save-company-url" value="{{route('edit-company', $data->_id)}}">
     <input type="hidden" name="redirect-url" value="{{route('manage-company')}}">
 @endsection
 
@@ -157,23 +157,10 @@
 
             $('#form-create-company').submit(function (e) {
                 e.preventDefault();
-                var file_data = $('#company_logo').prop('files')[0];
                 var data = new FormData($(this)[0]);
-                var url             = $('input[name=save-job-url]').val();
+                var url             = $('input[name=save-company-url]').val();
                 var redirect_url    = $('input[name=redirect-url]').val();
-                data.company_logo   = file_data;
-                data._token         = $(this).find('[name=_token]').val();
-
-                data.description    = $(this).find('[name=description]').html();
-                data.email          = $(this).find('[name=email]').val();
-                data.company_logo   = file_data;
-                data.company_name   = $(this).find('[name=company_name]').val();
-                data.company_location   = $(this).find('[name=company_location]').val();
-                data.company_country    = $(this).find('[name=company_country]').val();
-                data.company_size_from  = $(this).find('[name=company_size_from]').val();
-                data.company_size_to    = $(this).find('[name=company_size_to]').val();
-
-                data.company_url    = $(this).find('[name=company_url]').val();
+                data.append('description', $(this).find('[class=note-editable]').html());
 
                 if(!$(this).valid()){
                     return false;
