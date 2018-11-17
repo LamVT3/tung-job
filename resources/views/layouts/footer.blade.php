@@ -14,10 +14,13 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="widget">
-                        <h3 class="block-title">Quick Links</h3>
+                        <h3 class="block-title">Ecosystem</h3>
                         <ul class="menu">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="//b4uconference.com/">B4uconference</a></li>
+                            <li><a href="//exam.b4usolution.com/">Exam B4usolution</a></li>
+                            <li><a href="//b4usolution.com/">B4usolution</a></li>
+                            <li><a href="//quiz.b4usolution.com/quiz">Quiz B4usolution</a></li>
+                            <li><a href="//jobs.b4usolution.com/">Jobs B4usolution</a></li>
                         </ul>
                     </div>
                 </div>
@@ -25,9 +28,9 @@
                     <div class="widget">
                         <h3 class="block-title">Trending Jobs</h3>
                         <ul class="menu">
-                            <li><a href="#">Android Developer</a></li>
-                            <li><a href="#">Senior Accountant</a></li>
-                            <li><a href="#">Frontend Developer</a></li>
+                            @foreach($trends as $item)
+                            <li><a target="_blank" href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

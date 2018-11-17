@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Job;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+	    view()->composer('layouts.footer', function ($view) {
+		    $jobs = Job::orderBy('view', 'desc')->take(5)->get();
+
+		    $view->with('trends', $jobs);
+	    });
     }
 
     /**

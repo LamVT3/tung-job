@@ -187,4 +187,39 @@
         </div>
     </section>
 
+    <section class="category section">
+        <div class="container">
+            <h2 class="section-title">B4usolution Ecosystem</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3 col-sm-3 col-xs-12 f-category" style="height: unset;">
+                        <a href="//b4uconference.com/" target="_blank">
+                            <img src="{{asset('img/hinh1.jpg')}}" alt="" style="height: unset;">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 f-category" style="height: unset;">
+                        <a href="//exam.b4usolution.com" target="_blank">
+                            <img src="{{asset('img/hinh2.jpg')}}" alt="" style="height: unset;">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 f-category" style="height: unset;">
+                        <a href="//quiz.b4usolution.com/quiz" target="_blank">
+                            <img src="{{asset('img/hinh3.jpg')}}" alt="" style="height: unset;">
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 f-category" style="height: unset;">
+                        <a href="//b4usolution.com" target="_blank">
+                            <img src="{{asset('img/hinh4.jpg')}}" alt="">
+                        </a>
+                    </div>
+                    {{--<div class="col-md-3 col-sm-3 col-xs-12 f-category">--}}
+                        {{--<a href="//jobs.b4usolution.com" target="_blank">--}}
+                            {{--<img src="{{asset('img/hinh5.jpg')}}" alt="">--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
