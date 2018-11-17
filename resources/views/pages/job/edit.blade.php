@@ -252,6 +252,7 @@
                 data.expire_date    = $(this).find('[name=expire_date]').val();
                 data.company_id     = $(this).find('[name=company]').val();
                 data.company_name   = $(this).find('[name=company] :selected').text();
+                data.is_deleted     = $(this).find('[name=is_deleted] :selected').val();
 
                 if(!$(this).valid()){
                     return false;
