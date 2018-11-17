@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 	    view()->composer('layouts.footer', function ($view) {
-		    $jobs = Job::orderBy('view', 'desc')->take(5)->get();
+		    $jobs = Job::orderBy('view', 'desc')->where('is_deleted','<>','1')->take(5)->get();
 
 		    $view->with('trends', $jobs);
 	    });
