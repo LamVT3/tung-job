@@ -190,13 +190,13 @@ class CompanyController extends Controller
     }
 
 	public function reviewCompany(){
-		$data = Company::orderBy('created_at', 'desc')->where('is_deleted','<>','1')->paginate((int)env('APP_PAGINATE',10));
+		$data = Company::orderBy('created_at', 'desc')->where('is_deleted','<>',1)->paginate((int)env('APP_PAGINATE',10));
 		return view('pages.company.review-company', compact('data'));
 	}
 
 	public function searchReviewCompany(Request $request){
         $query = $request->get('query','');
-        $result = Company::where('company_name','LIKE','%'.$query.'%')->where('is_deleted','<>','1')->get();
+        $result = Company::where('company_name','LIKE','%'.$query.'%')->where('is_deleted','<>',1)->get();
 
         $keyword = array();
         foreach ($result as $value){
