@@ -35,9 +35,9 @@
                         <div class="form-group">
                             <label class="control-label require_field">Location <span>(optional)</span></label>
                             <select name="location" class="form-control">
-                                <option value="ha-noi" @if(@$location == "ha-noi") selected @endif>Ha Noi</option>
-                                <option value="da-nang" @if(@$location == "da-nang") selected @endif>Da Nang</option>
-                                <option value="ho-chi-minh" @if(@$location == "ho-chi-minh") selected @endif>Ho Chi Minh</option>
+                                <option value="ha-noi" @if(@$location == "Ha Noi") selected @endif>Ha Noi</option>
+                                <option value="da-nang" @if(@$location == "Da Nang") selected @endif>Da Nang</option>
+                                <option value="ho-chi-minh" @if(@$location == "Ho Chi Minh") selected @endif>Ho Chi Minh</option>
                             </select>
                         </div>
                         <div class="form-group">
