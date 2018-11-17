@@ -22,8 +22,9 @@ class UserController extends Controller
 
 	public function applications()
 	{
-		$jobs = Job::paginate(1);
-		return view('pages.profile.applications', compact('jobs'));
+		return $this->showFormResetPassword();
+//		$jobs = Job::paginate(1);
+//		return view('pages.profile.applications', compact('jobs'));
 	}
 
 	public function showFormResetPassword(){
