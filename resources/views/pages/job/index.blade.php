@@ -25,7 +25,7 @@
         <div class="container">
             <h2 class="section-title">Find good a Job</h2>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb15">
 
                     @foreach($data as $item)
                         <div class="job-list" style="width: 100%">
@@ -34,7 +34,7 @@
                             </div>
                             <div class="job-list-content">
                                 <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a><span class="full-time">Full-Time</span></h4>
-                                <p>{!! strip_tags(substr($item->description, 0, 300)) . '...' !!}</p>
+                                <p></p>
                                 <div class="job-tag">
                                     <div class="pull-left">
                                         <div class="meta-tag">
@@ -67,7 +67,7 @@
                     @endforeach
 
 
-                <div class="col-md-12">
+                <div class="col-md-12 mb15">
                     {{$data->links()}}
                 </div>
                 </div>

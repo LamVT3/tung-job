@@ -20,7 +20,7 @@
         <div class="container">
             <h2 class="section-title">Results</h2>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb15">
                     @if(count($data)==0)
                         <h4>The job you're looking for doesn't exist</h4>
                     @else
@@ -70,10 +70,9 @@
                         </div>
 
                     @endforeach
-                    <br>
-                    {{$data->appends(request()->input())->links()}}
-                    <br>
-                    <br>
+                    <div class="mb15">
+                        {{$data->appends(request()->input())->links()}}
+                    </div>
                     @endif
 
                 </div>

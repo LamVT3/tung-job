@@ -29,16 +29,15 @@
                             <div class="thumb">
                                 <a href="{{route('job-detail', $item->slug_title)}}"><img width="100px" height="100px" src="{{asset('images/'.$item->company->company_logo)}}" alt=""></a>
                             </div>
-                            <div class="job-list-content">
+                            <div class="job-list-content" id="list-jobs">
                                 <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a>
                                     @if($item->job_type == 'Full-Time')
                                         <span class="full-time">Full-Time</span>
                                     @else
                                         <span class="part-time">Part-Time</span>
                                     @endif
-
                                 </h4>
-                                <p>{!! strip_tags(substr($item->description, 0, 300)) . '...' !!}</p>
+                                <p></p>
                                 <div class="job-tag">
                                     <div class="pull-left">
                                         <div class="meta-tag">
