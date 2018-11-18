@@ -635,7 +635,7 @@ a:focus {
 }
 .main-navigation .dropdown li a,
 .main-navigation .sup-dropdown li a {
-  color: #fff;
+  /*color: #000;*/
 }
 .main-navigation .navbar-nav .dropdown:before {
   border-color: transparent transparent #282828;

@@ -66,11 +66,13 @@
                                 </ul>
                             </li>
                             @endif
+                            @auth
                             <li>
                                 <a href="{{route('user-profile')}}">
                                     My Profile
                                 </a>
                             </li>
+                            @endauth
                         </ul>
 
                         <!-- Authentication Links -->
@@ -97,15 +99,72 @@
                 <!-- Mobile Menu Start -->
                 <ul class="wpb-mobile-menu">
                     <li>
-                        <a class="active" href="{{route('all-job')}}">All Jobs</a>
+                        <a href="{{route('all-job')}}">
+                            All Jobs
+                        </a>
                     </li>
                     <li>
-                        <a href="about.html">Company Reviews</a>
+                        <a href="{{route('company-review')}}">
+                            Company Reviews
+                        </a>
                     </li>
-                    <li>
-                        <a href="#">For Employers</a>
-                    </li>
-                    <li class="btn-m"><a href="{{ route('login') }}"><i class="ti-lock"></i>  Log In</a></li>
+                    @if(@auth()->user()->role == "ADMIN")
+                        <li>
+                            <a href="#">
+                                Employers
+                            </a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="{{route('show-create-job')}}">
+                                        Add Job
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('manage-job')}}">
+                                        Manage Jobs
+                                    </a>
+                                </li>
+                                <li><a href="{{route('job-applied')}}">Jobs Applied</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Companies
+                            </a>
+                            <ul class="dropdown">
+                                <li>
+                                    <a href="{{route('show-create-company')}}">
+                                        Add Company
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('manage-company')}}">
+                                        Manage Companies
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                    @auth
+                        <li>
+                            <a href="{{route('user-profile')}}">
+                                My Profile
+                            </a>
+                        </li>
+                    @endauth
+                    @guest
+                        <li class="btn-m"><a href="{{ route('login') }}"><i class="ti-lock"></i>  Log In</a></li>
+                    @else
+                        <li class="btn-m"><a href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                <i class="ti-lock"></i>  Log Out</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+
+                        </li>
+                    @endguest
                 </ul>
                 <!-- Mobile Menu End -->
             </nav>
