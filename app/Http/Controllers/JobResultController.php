@@ -36,8 +36,8 @@ class JobResultController
     public function searchJob(Request $request)
     {
         $query = $request->get('query','');
-        $result = Job::where('job_title','LIKE','%'.$query.'%')->where('is_deleted','<>',1)->get();
-        $result_company = Company::where('company_name','LIKE','%'.$query.'%')->where('is_deleted','<>',1)->get();
+        $result = Job::where('job_title','LIKE','%'.$query.'%')->where('is_deleted','<>','1')->get();
+        $result_company = Company::where('company_name','LIKE','%'.$query.'%')->where('is_deleted','<>','1')->get();
 
         $keyword = array();
         foreach ($result as $value){

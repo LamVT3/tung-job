@@ -22,20 +22,6 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $data = $this->get_list_company();
-
-        return view('pages.company.index', compact(
-            'data'
-        ));
-    }
-
-    /**
      * Show form create a company.
      *
      * @return \Illuminate\Http\Response
@@ -77,7 +63,7 @@ class CompanyController extends Controller
 
 	    $company->save();
 
-        return response()->json(['type' => 'success', 'url' => route('home'), 'message' => 'Company has been created!']);
+        return response()->json(['type' => 'success', 'url' => route('manage-company'), 'message' => 'Company has been created!']);
     }
 
     /**
@@ -181,7 +167,7 @@ class CompanyController extends Controller
 
         $request = request();
         $company                = Company::find($request->id);
-        $company->is_deleted    = 1;
+        $company->is_deleted    = '1';
 
         $company->save();
 
@@ -190,13 +176,13 @@ class CompanyController extends Controller
     }
 
 	public function reviewCompany(){
-		$data = Company::orderBy('created_at', 'desc')->where('is_deleted','<>',1)->paginate((int)env('APP_PAGINATE',10));
+		$data = Company::orderBy('created_at', 'desc')->where('is_deleted','<>','1')->paginate((int)env('APP_PAGINATE',10));
 		return view('pages.company.review-company', compact('data'));
 	}
 
 	public function searchReviewCompany(Request $request){
         $query = $request->get('query','');
-        $result = Company::where('company_name','LIKE','%'.$query.'%')->where('is_deleted','<>',1)->get();
+        $result = Company::where('company_name','LIKE','%'.$query.'%')->where('is_deleted','<>','1')->get();
 
         $keyword = array();
         foreach ($result as $value){

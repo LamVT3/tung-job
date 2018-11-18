@@ -31,7 +31,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $data = Job::orderBy('created_at', 'desc')->where('is_deleted','<>',1)->paginate((int)env('APP_PAGINATE',10));
+        $data = Job::orderBy('created_at', 'desc')->where('is_deleted','<>','1')->paginate((int)env('APP_PAGINATE',10));
 
         return view('pages.job.index', compact(
             'data'
@@ -263,5 +263,10 @@ class JobController extends Controller
 
 	}
 
+	public function applications()
+	{
+		$data = ApplyJob::orderBy('created_at', 'desc')->paginate((int)env('APP_PAGINATE',10));
+		return view('pages.job.job-applied', compact('data'));
+	}
 
 }

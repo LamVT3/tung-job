@@ -45,6 +45,7 @@
                                             Manage Jobs
                                         </a>
                                     </li>
+                                    <li><a href="{{route('job-applied')}}">Jobs Applied</a></li>
                                 </ul>
                             </li>
                             <li>

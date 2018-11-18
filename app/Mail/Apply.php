@@ -32,11 +32,12 @@ class Apply extends Mailable
     public function build()
     {
 	    return $this->markdown('emails.apply')
+		            ->bcc($this->data['email'])
 	                ->with(['data' => $this->data])
 					->subject('Welcome to Jobs')
 					->from(env('MAIL_FROM_ADDRESS'))
 					->attach($this->file->getRealPath(), array(
-					'as' => 'resume.' . $this->file->getClientOriginalExtension(),
+					'as' => 'resume-' .$this->data['email']. '.' . $this->file->getClientOriginalExtension(),
 					'mime' => $this->file->getMimeType()));
     }
 }

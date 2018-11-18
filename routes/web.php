@@ -44,6 +44,8 @@ Route::group(['prefix' => 'job'], function () {
 
 	Route::post('/apply/{slug}', 'JobController@apply')->name('job-apply');
 
+	Route::get('/applications', 'JobController@applications')->name('job-applied');
+
 	Route::get('/job-tag', 'JobResultController@showResultJobTag')->name('result-search-tag');
 
 });

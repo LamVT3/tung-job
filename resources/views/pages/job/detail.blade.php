@@ -202,15 +202,15 @@
                             <form class="login-form" method="post" enctype="multipart/form-data" action="{{route('job-apply', $job->slug_title)}}">
                                 {{csrf_field()}}
                                 <div class="form-group">
-                                    <input type="text" value="Tu Thanh Tung" name="name" class="form-control" placeholder="Your Name" required="">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="email" value="tuthanhtungit@gmail.com" name="email" class="form-control" placeholder="Your Email" required="">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required="">
                                 </div>
 
                                 <div class="form-group">
-                                    <textarea class="form-control" name="about" placeholder="About You / Paste your CV">Hello</textarea>
+                                    <textarea class="form-control" name="about" placeholder="About You / Paste your CV"></textarea>
                                 </div>
 
                                 <div class="form-group">

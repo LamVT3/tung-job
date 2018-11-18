@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.css')}}" type="text/css">
     <!-- Main Styles -->
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/colors/green.css')}}" type="text/css">
     <!-- Responsive CSS Styles -->
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css">
 
