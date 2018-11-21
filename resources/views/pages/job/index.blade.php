@@ -23,7 +23,7 @@
     <!-- Find Job Section Start -->
     <section class="find-job section">
         <div class="container">
-            <h2 class="section-title">Find good a Job</h2>
+            <h2 class="section-title">Find a suitable job</h2>
             <div class="row">
                 <div class="col-md-12 mb15">
 

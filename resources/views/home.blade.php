@@ -95,7 +95,7 @@
 
     <section class="category section">
         <div class="container">
-            <h2 class="section-title">B4usolution Ecosystem</h2>
+            <h2 class="section-title">B4USolution Ecosystem</h2>
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-3 col-sm-3 col-xs-12 f-category" style="height: unset;">

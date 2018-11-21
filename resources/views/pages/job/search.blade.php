@@ -11,9 +11,10 @@
                 {{--<input class="form-control" type="email" placeholder="city / province / zip code">
                 <i class="ti-location-pin"></i>--}}
                 <select  class="form-control" name="location" style="-webkit-appearance: none;-moz-appearance: none;appearance: none;">
-                    <option value="ha noi" @if(@$location == "ha noi") selected @endif>Ha Noi</option>
-                    <option value="da nang" @if(@$location == "da nang") selected @endif>Da Nang</option>
-                    <option value="ho chi minh" @if(@$location == "ho chi minh") selected @endif>Ho Chi Minh</option>
+                    <option value="Ha Noi" @if(@$location == "Ha Noi") selected @endif>Ha Noi</option>
+                    <option value="Da Nang" @if(@$location == "Da Nang") selected @endif>Da Nang</option>
+                    <option value="Ho Chi Minh" @if(@$location == "Ho Chi Minh") selected @endif>Ho Chi Minh</option>
+                    <option value="Others" @if(@$location == "Others") selected @endif>Others</option>
                 </select>
                 <i class="ti-location-pin"></i>
             </div>
