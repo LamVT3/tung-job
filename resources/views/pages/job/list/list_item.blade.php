@@ -24,14 +24,7 @@
                         @endforeach
                     @endif
                     <span><i class="ti-location-pin"></i>{{$item->location}}</span>
-					<?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
-                    @if($difftime / 60 < 60)
-                        <span><i class="ti-time"></i>{{floor($difftime / 60)}} minute(s) ago</span>
-                    @elseif($difftime / 3600 < 60)
-                        <span><i class="ti-time"></i>{{floor($difftime / 3600)}} hour(s) ago</span>
-                    @else
-                        <span><i class="ti-time"></i>{{floor($difftime / 84600)}} day(s) ago</span>
-                    @endif
+                        <span><i class="ti-calendar"></i>{{$item->created_at->diffForHumans()}}</span>
                 </div>
             </div>
             <div class="pull-right">

@@ -29,16 +29,16 @@
                     <div class="header-detail">
                         <div class="header-content pull-left">
                             <h1><a href="#">{{$data->company_name}}</a></h1>
-                            <h5 style="margin-top: 5px"><i class="ti-user"></i><span> {{$data->company_size_from}} - {{$data->company_size_to}}</span></h5>
-                            <h5 style="margin-top: 5px"><i class="ti-link"></i> <a href="{{$data->company_url}}">Visit Company</a></h5>
+                            <p>Address: {{$data->company_location}}</p>
+                            <p>Country: {{$data->company_country}}</p>
                         </div>
                         <div class="detail-company pull-right text-right">
                             <div class="img-thum">
                                 <img class="img-responsive" width="100px" height="100px" src="{{asset('images/'.$data->company_logo)}}" alt="">
                             </div>
                             <div class="name">
-                                <h4>{{$data->company_country}}</h4>
-                                <h5>{{$data->company_location}}</h5>
+                                <h5 style="margin-top: 5px"><i class="ti-user"></i><span> {{$data->company_size_from}} - {{$data->company_size_to}}</span></h5>
+                                <h5 style="margin-top: 5px"><i class="ti-link"></i> <a href="{{$data->company_url}}">Visit Company</a></h5>
                             </div>
                         </div>
                         <div class="clearfix">

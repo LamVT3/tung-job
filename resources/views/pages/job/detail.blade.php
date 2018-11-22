@@ -37,6 +37,7 @@
                             <h3><a href="#">{{$job->job_title}}</a></h3>
                             <p><span>Date Posted: {{date('M d, Y', strtotime($job->created_date))}}</span></p>
                             <p>Monthly Salary: <strong class="price">${{$job->salary_from}} - ${{$job->salary_to}}</strong></p>
+                            <p>Address: {{$job->company->company_location}}</p>
                         </div>
                         <div class="detail-company pull-right text-right">
                             <div class="img-thum">
@@ -44,7 +45,6 @@
                             </div>
                             <div class="name">
                                 <h4>{{$job->company_name}}</h4>
-                                <h5>{{$job->company->company_location}}</h5>
                                 <p>{{$job->amount}} Current jobs openings</p>
                             </div>
                         </div>
@@ -106,14 +106,7 @@
                                                                 @endforeach
                                                             @endif
                                                             <span><i class="ti-location-pin"></i>{{$item->location}}</span>
-                                                            <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
-                                                            @if($difftime / 60 < 60)
-                                                                <span><i class="ti-time"></i>{{floor($difftime / 60)}} minute(s) ago</span>
-                                                            @elseif($difftime / 3600 < 60)
-                                                                <span><i class="ti-time"></i>{{floor($difftime / 3600)}} hour(s) ago</span>
-                                                            @else
-                                                                <span><i class="ti-time"></i>{{floor($difftime / 84600)}} day(s) ago</span>
-                                                            @endif
+                                                                <span><i class="ti-calendar"></i>{{$item->created_at->diffForHumans()}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="pull-right">

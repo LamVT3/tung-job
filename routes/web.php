@@ -68,6 +68,9 @@ Route::group(['prefix' => 'user'], function () {
 	Route::get('/reset-password', 'UserController@showFormResetPassword')->name('user-show-form-reset');
 	Route::post('/reset-password', 'UserController@resetPassword')->name('user-reset-pwd');
 });
+Route::get('/about-us','HomeController@about')->name('about-us');
+Route::get('/our-customers','HomeController@ourCustomers')->name('our-customers');
+
 Route::get('/search-job','JobResultController@searchJob')->name('search-job');
 
 Route::get('/search_company', 'CompanyController@searchReviewCompany') -> name('search-company');

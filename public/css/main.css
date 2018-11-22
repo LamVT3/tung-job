@@ -3634,3 +3634,16 @@ em.invalid {
   -webkit-box-orient: vertical;
 }
 
+.team.team-list .team-image {
+  float: left;
+  width: 250px;
+  margin-right: 30px;
+}
+.team.team-list .team-desc {
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+.team .team-content ~ .social-icon {
+  margin-top: 30px;
+}

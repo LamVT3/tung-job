@@ -63,7 +63,7 @@
                             <div class="featured-inner">
                                 <figure class="item-thumb">
                                     <a class="hover-effect" href="{{route('job-detail', $item->slug_title)}}">
-                                        <img width="350px" height="200px" src="{{asset('images/'.$item->company->company_logo)}}" alt="">
+                                        <img style="margin-left: 30%" width="150px" height="100px" src="{{asset('images/'.$item->company->company_logo)}}" alt="">
                                     </a>
                                 </figure>
                                 <div class="item-body">
@@ -73,18 +73,8 @@
                             </div>
                         </div>
                         <div class="item-foot">
-                            <?php $difftime = strtotime(date('Y-m-d H:i:s')) - strtotime($item->created_at); ?>
-                            @if($difftime / 60 < 60)
-                                <span><i class="ti-calendar"></i>{{floor($difftime / 60)}} minute(s) ago</span>
-                            @elseif($difftime / 3600 < 60)
-                                <span><i class="ti-calendar"></i>{{floor($difftime / 3600)}} hour(s) ago</span>
-                            @else
-                                <span><i class="ti-calendar"></i>{{floor($difftime / 84600)}} day(s) ago</span>
-                            @endif
+                            <span><i class="ti-calendar"></i>{{$item->created_at->diffForHumans()}}</span>
                             <span><i class="ti-time"></i> {{$item->job_type}}</span>
-                            <div class="view-iocn">
-                                <a href="{{route('job-detail', $item->slug_title)}}"><i class="ti-arrow-right"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>

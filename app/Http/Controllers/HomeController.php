@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Job;
 use App\User;
 use Illuminate\Http\Request;
@@ -42,4 +43,16 @@ class HomeController extends Controller
             'hot_jobs'
         ));
     }
+
+	public function about()
+	{
+		return view('pages.about');
+	}
+
+	public function ourCustomers()
+	{
+		$data = Company::orderBy('created_at', 'desc')->where('is_deleted','<>','1')->get();
+
+		return view('pages.our-customers', compact('data'));
+	}
 }

@@ -29,6 +29,16 @@
                                     Company Reviews
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route('about-us')}}">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('our-customers')}}">
+                                    Our Customers
+                                </a>
+                            </li>
                             @if(@auth()->user()->role == "ADMIN")
                             <li>
                                 <a href="#">
@@ -106,6 +116,16 @@
                     <li>
                         <a href="{{route('company-review')}}">
                             Company Reviews
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('about-us')}}">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('our-customers')}}">
+                            Our Customers
                         </a>
                     </li>
                     @if(@auth()->user()->role == "ADMIN")

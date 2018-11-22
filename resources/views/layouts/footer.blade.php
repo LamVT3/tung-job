@@ -6,7 +6,7 @@
             <p>Want to post a job? Contact us at Ho Chi Minh: (+84) 0989214285.</p>
             <br>
             <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="widget">
                         <h3 class="block-title"><img src="{{asset('img/logo.png')}}" class="img-responsive" alt="Footer Logo"></h3>
                         <div class="textwidget">
@@ -15,15 +15,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="col-md-2 col-sm-6 col-xs-12">
                     <div class="widget">
                         <h3 class="block-title">B4USolution Ecosystem</h3>
                         <ul class="menu">
-                            <li><a href="//b4uconference.com/">B4Uconference</a></li>
-                            <li><a href="//exam.b4usolution.com/">Exam B4Usolution</a></li>
-                            <li><a href="//b4usolution.com/">B4Usolution</a></li>
-                            <li><a href="//quiz.b4usolution.com/quiz">Quiz B4Usolution</a></li>
-                            <li><a href="//jobs.b4usolution.com/">Jobs B4Usolution</a></li>
+                            <li><a href="//b4uconference.com/">B4UConference</a></li>
+                            <li><a href="//exam.b4usolution.com/">Exam B4USolution</a></li>
+                            <li><a href="//b4usolution.com/">B4USolution</a></li>
+                            <li><a href="//quiz.b4usolution.com/quiz">Quiz B4USolution</a></li>
+                            <li><a href="//jobs.b4usolution.com/">Jobs B4USolution</a></li>
                         </ul>
                     </div>
                 </div>
