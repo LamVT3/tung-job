@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{asset('css/colors/green.css')}}" type="text/css">
     <!-- Responsive CSS Styles -->
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/jsRapStar.css')}}" type="text/css">
 
     <!-- Color CSS Styles  -->
 

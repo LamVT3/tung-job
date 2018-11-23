@@ -61,6 +61,7 @@ Route::group(['prefix' => 'company'], function () {
 
 	Route::get('/','CompanyController@reviewCompany')->name('company-review');
 	Route::get('/result_search', 'CompanyController@resultSearchCompany')->name('result-company');
+    Route::post('/update-rating','CompanyController@updateRating')->name('update-rating');
 });
 
 Route::group(['prefix' => 'user'], function () {
