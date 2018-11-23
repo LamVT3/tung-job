@@ -26,15 +26,14 @@
             <div class="container clearfix row">
 
                 <div class="heading-block" style="margin-bottom: 40px">
-                    <h2 class="section-title"><span>Want great IT candidates?</span></h2>
-                    <h3>Want to post a job? Contact us at Ho Chi Minh: (+84) 0989214285.</h3>
+                    <h3>Want to post a job? Contact us at Ho Chi Minh: (+84) 0989214285 | Skype: hoa.lethibich | Email: hoale@b4usolution.com</h3>
                 </div>
 
                 <h2 class="section-title">Great IT companies</h2>
                 <div class="row">
                     <div class="col-md-12">
                         @foreach($data as $item)
-                            <div class="col-md-2 col-sm-2 col-xs-12 f-category">
+                            <div class="col-md-2 col-sm-2 col-xs-12 f-category" style="border: none">
                                 <a href="{{route('company-detail', $item->slug_company_name)}}">
                                     <img width="150px" height="120px" src="{{asset('images/'. $item->company_logo)}}" alt="">
                                 </a>
