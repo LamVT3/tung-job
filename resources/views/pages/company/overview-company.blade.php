@@ -21,7 +21,6 @@
 @endsection
 @section('content')
 
-
     <section class="job-detail section">
         <div class="container">
             <div class="row">
@@ -46,12 +45,129 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-7 col-sm-7 col-xs-7">
                     <div class="content-area">
                         <div class="clearfix">
                             <div class="box">
                                 {!! $data->description !!}
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="content-area">
+                        <div class="clearfix">
+                            <div class="box">
+                                <form method="POST" action="{{action('CompanyController@updateRating')}}" >
+                                    {{csrf_field()}}
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td width="70px" style="font-weight: bold; font-size: 18px">
+                                                Rating
+                                            </td>
+                                            <td>
+                                                <div id="rating" start="{{$total}}"></div>
+
+                                            </td>
+                                            <td><p style="text-align: center;font-size: 20px;margin-top: 23px; font-weight: bold;">{{$total}}/5</p></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td width="200px" style="font-weight: bold">
+                                                Growth Opportunity
+                                            </td>
+                                            <td>
+                                                @if(Auth::user() != null && $flag_user == false)
+                                                    <div id="rating-1" start="{{$sub_rating['growth']}}"></div>
+                                                    <input name="number-1" id="number-1" value="{{$sub_rating['growth']}}" hidden>
+                                                @else
+                                                    <div class="rating-disable" start="{{$sub_rating['growth']}}"></div>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td width="200px" style="font-weight: bold">
+                                                Culture & Value
+                                            </td>
+                                            <td>
+                                                @if(Auth::user() != null && $flag_user == false)
+                                                    <div id="rating-2" start="{{$sub_rating['culture']}}"></div>
+                                                    <input name="number-2" id="number-2" value="{{$sub_rating['culture']}}" hidden>
+                                                @else
+                                                    <div class="rating-disable" start="{{$sub_rating['culture']}}"></div>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td width="200px" style="font-weight: bold">
+                                                Leadership
+                                            </td>
+                                            <td>
+                                                @if(Auth::user() != null && $flag_user == false)
+                                                    <div id="rating-3" start="{{$sub_rating['leader']}}"></div>
+                                                    <input name="number-3" id="number-3" value="{{$sub_rating['leader']}}" hidden>
+                                                @else
+                                                    <div class="rating-disable" start="{{$sub_rating['leader']}}"></div>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td width="200px" style="font-weight: bold">
+                                                Work & Life Quality
+                                            </td>
+                                            <td>
+                                                @if(Auth::user() != null && $flag_user == false)
+                                                    <div id="rating-4" start="{{$sub_rating['work']}}"></div>
+                                                    <input name="number-4" id="number-4" value="{{$sub_rating['work']}}" hidden>
+                                                @else
+                                                    <div class="rating-disable" start="{{$sub_rating['work']}}"></div>
+                                                @endif
+
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td width="200px" style="font-weight: bold">
+                                                Company Reputation
+                                            </td>
+                                            <td>
+                                                @if(Auth::user() != null && $flag_user == false)
+                                                    <div id="rating-5" start="{{$sub_rating['reputation']}}"></div>
+                                                    <input name="number-5" id="number-5" value="{{$sub_rating['reputation']}}" hidden>
+                                                @else
+                                                    <div class="rating-disable" start="{{$sub_rating['reputation']}}"></div>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    @if(Auth::user() != null && $flag_user == false )
+                                        <input hidden type="text" value="{{$data->_id}}"name="company_id">
+                                        <button type="submit" class="btn btn-primary" style="margin-left: 30%;margin-top: 10px;">Submit Rating</button>
+                                    @endif
+
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -66,13 +182,70 @@
         </div>
 
 
-        <script>(function(d, s, id) {
+        <script>
+            (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); js.id = id;
                 js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=326695574782599&autoLogAppEvents=1';
                 fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
+            }(document, 'script', 'facebook-jssdk'));
+
+        </script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
+@endsection
+
+@section('script')
+
+    <script src="{{asset('/js/jsRapStar.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.rating-disable').jsDisableSubRating({enabled:false});
+            $('#rating').jsRapStar({enabled:false});
+            $('#rating-1').jsRapStar({colorFront:'#FFC300  ',length:5,starHeight:32,step:false,
+                onClick:function(score){
+                    $(this)[0].StarF.css({color:'#99c33b'});
+                    score = Math.round(score * 10)/10
+                    $('#number-1').val(score);
+                },
+
+            });
+
+            $('#rating-2').jsRapStar({colorFront:'#FFC300  ',length:5,starHeight:32,step:false,
+                onClick:function(score){
+                    $(this)[0].StarF.css({color:'#99c33b'});
+                    score = Math.round(score * 10)/10
+                    $('#number-2').val(score);
+                },
+
+            });
+
+            $('#rating-3').jsRapStar({colorFront:'#FFC300  ',length:5,starHeight:32,step:false,
+                onClick:function(score){
+                    $(this)[0].StarF.css({color:'#99c33b'});
+                    score = Math.round(score * 10)/10
+                    $('#number-3').val(score);
+                },
+
+            });
+
+            $('#rating-4').jsRapStar({colorFront:'#FFC300  ',length:5,starHeight:32,step:false,
+                onClick:function(score){
+                    $(this)[0].StarF.css({color:'#99c33b'});
+                    score = Math.round(score * 10)/10
+                    $('#number-4').val(score);
+                },
+
+            });
+            $('#rating-5').jsRapStar({colorFront:'#FFC300  ',length:5,starHeight:32,step:false,
+                onClick:function(score){
+                    $(this)[0].StarF.css({color:'#99c33b'});
+                    score = Math.round(score * 10)/10
+                    $('#number-5').val(score);
+                },
+
+            });
+        });
+    </script>
 @endsection

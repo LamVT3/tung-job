@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Company;
-use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Array_;
 
 class CompanyController extends Controller
 {
@@ -16,7 +16,7 @@ class CompanyController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-	        'index', 'detail', 'reviewCompany', 'searchReviewCompany','resultSearchCompany'
+	        'index', 'detail', 'reviewCompany', 'searchReviewCompany','resultSearchCompany','updateRating'
 
         ]]);
     }
@@ -87,10 +87,27 @@ class CompanyController extends Controller
      */
     public function detail($slug)
     {
+        $flag_user = false;
+        $total = 3;
+        $sub_rating['growth'] = 3.5;
+        $sub_rating['culture'] = 3.5;
+        $sub_rating['leader'] = 3.5;
+        $sub_rating['work'] = 3.5;
+        $sub_rating['reputation'] = 3.5;
+
+
         $data = Company::where('slug_company_name', $slug)->first();
+        $user = Auth::user();
+        if($user != null){
+            if($data->user_rating!=null){
+                $flag_user = in_array($user->_id,$data->user_rating);
+                $total = round($data->total_rating,1);
+                $sub_rating= $data->sub_rating;
+            }
+        }
 
         return view('pages.company.overview-company', compact(
-            'data'
+            'data','flag_user','total','sub_rating'
         ));
     }
 
@@ -199,5 +216,61 @@ class CompanyController extends Controller
         $data = Company::searchCompany($company_name);
 
         return view('pages.company.result-search-company', compact('data'));
+    }
+
+    /**
+     *
+     */
+    public function  updateRating(){
+        $company_id = request('company_id');
+
+        $company = Company::where('_id',$company_id)->first();
+
+        $user = Auth::user()->_id;
+        $number_1 = request('number-1');
+        $number_2 = request('number-2');
+        $number_3 = request('number-3');
+        $number_4 = request('number-4');
+        $number_5 = request('number-5');
+
+        $user_rating = $company->user_rating;
+        $total_rating = $company->total_rating;
+        $sub_rating = $company->sub_rating;
+
+
+
+        if($total_rating != null){
+            $count_user = count($user_rating);
+            $sub_growth = (($number_1 * $count_user) + $sub_rating['growth'])/($count_user + 1);
+            $sub_culture = (($number_2 * $count_user) + $sub_rating['culture'])/($count_user + 1);
+            $sub_leader = (($number_3 * $count_user) + $sub_rating['leader'])/($count_user + 1);
+            $sub_work = (($number_4 * $count_user)+ $sub_rating['work'])/($count_user + 1);
+            $sub_reputation = (($number_5 * $count_user) + $sub_rating['reputation'])/($count_user + 1);
+
+            $total = (($total_rating * $count_user) + (($sub_growth + $sub_culture + $sub_leader + $sub_work + $sub_reputation)/5))/($count_user + 1);
+        }else{
+            $sub_growth = $number_1;
+            $sub_culture = $number_2;
+            $sub_leader =  $number_3;
+            $sub_work = $number_4;
+            $sub_reputation = $number_5;
+
+            $total = ($sub_growth + $sub_culture + $sub_leader + $sub_work + $sub_reputation)/5;
+
+        }
+
+        $total = round($total,2);
+        $number = Array();
+        $number['growth'] = round($sub_growth,2) ;
+        $number['culture'] = round($sub_culture,2) ;
+        $number['leader'] = round($sub_leader,2) ;
+        $number['work'] = round($sub_work,2) ;
+        $number['reputation'] = round($sub_reputation,2) ;
+
+
+
+        Company::saveRating($company_id, $user, $total,$number);
+
+        return redirect()->back();
     }
 }
