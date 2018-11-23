@@ -26,7 +26,8 @@
             <div class="container clearfix row">
 
                 <div class="heading-block" style="margin-bottom: 40px">
-                    <h3>Want to post a job? Contact us at Ho Chi Minh: (+84) 0989214285 | Skype: hoa.lethibich | Email: hoale@b4usolution.com</h3>
+                    <h3>Want to post a job? <br>
+                        Contact us at Ho Chi Minh: (+84) 0989214285 | Skype: hoa.lethibich | Email: hoale@b4usolution.com</h3>
                 </div>
 
                 <h2 class="section-title">Great IT companies</h2>
