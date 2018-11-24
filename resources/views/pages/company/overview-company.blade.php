@@ -55,6 +55,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="sidebar">
                     <div class="content-area">
                         <div class="clearfix">
                             <div class="box">
@@ -169,6 +170,23 @@
                             </div>
 
                         </div>
+                    </div>
+
+                    @foreach($jobs as $item)
+                        <div class="box">
+                            <div class="thumb">
+                                <a href="#"><img src="{{asset('images/'.$item->company->company_logo)}}" alt="img"></a>
+                            </div>
+                            <div class="text-box">
+                                <h4><a href="{{route('job-detail', $item->slug_title)}}">{{$item->job_title}}</a></h4>
+                                <p> </p>
+                                <a href="#" class="text"><i class="fa fa-map-marker"></i>{{$item->location}}</a>
+                                <a href="#" class="text"><i class="fa fa-calendar"></i>{{date('M d, Y', strtotime($item->created_date))}} - {{date('M d, Y', strtotime($item->expire_date))}} </a>
+                                <strong class="price"><i class="fa fa-money"></i>${{$item->salary_from}} - ${{$item->salary_to}}</strong>
+                                <a href="{{route('job-detail', $item->slug_title)}}" class="btn btn-common btn-sm">Apply for this Job</a>
+                            </div>
+                        </div>
+                    @endforeach
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">

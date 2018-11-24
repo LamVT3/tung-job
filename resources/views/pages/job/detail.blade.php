@@ -92,7 +92,7 @@
                                                         <span class="part-time">Part-Time</span>
                                                     @endif
                                                 </h4>
-                                                {!! strip_tags(substr($item->description, 0, 300)) . '...' !!}
+                                                <p> </p>
                                                 <div class="job-tag">
                                                     <div class="pull-left">
                                                         <div class="meta-tag">
@@ -162,7 +162,7 @@
                                 </div>
                                 <div class="text-box">
                                     <h4><a href="{{route('job-detail', $featured->slug_title)}}">{{$featured->job_title}}</a></h4>
-                                    <p>{!! strip_tags(substr($featured->description, 0, 200)) . '...' !!}</p>
+                                    <p> </p>
                                     <a href="#" class="text"><i class="fa fa-map-marker"></i>{{$featured->location}}</a>
                                     <a href="#" class="text"><i class="fa fa-calendar"></i>{{date('M d, Y', strtotime($featured->created_date))}} - {{date('M d, Y', strtotime($featured->expire_date))}} </a>
                                     <strong class="price"><i class="fa fa-money"></i>${{$featured->salary_from}} - ${{$featured->salary_to}}</strong>

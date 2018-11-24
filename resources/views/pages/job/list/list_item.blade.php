@@ -9,6 +9,11 @@
             @else
                 <span class="part-time">Part-Time</span>
             @endif
+            @if(isset($hot) && $hot == '1')
+                <span class="full-time" style="background: #ff4f57 !important;">Hot</span>
+            @elseif(isset($new) && $new == '1')
+                <span class="full-time" style="background: #99c33b !important;">New</span>
+            @endif
         </h4>
         <p></p>
         <div class="job-tag">

@@ -25,7 +25,7 @@
                 <div class="col-md-12">
 
                     @foreach($hot_jobs as $item)
-                        @include('pages.job.list.list_item',['item'=>$item])
+                        @include('pages.job.list.list_item',['item'=>$item, 'hot'=>'1'])
                     @endforeach
                 </div>
             </div>

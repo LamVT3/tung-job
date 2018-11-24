@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Company;
+use App\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Array_;
@@ -97,6 +98,12 @@ class CompanyController extends Controller
 
 
         $data = Company::where('slug_company_name', $slug)->first();
+
+        $jobs = Job::where('is_deleted', '<>', '1')
+                   ->where('company_id', $data->_id)
+                   ->orderBy('created_at', 'desc')
+                   ->take(3)->get();
+
         $user = Auth::user();
         if($user != null){
             if($data->user_rating!=null){
@@ -107,7 +114,7 @@ class CompanyController extends Controller
         }
 
         return view('pages.company.overview-company', compact(
-            'data','flag_user','total','sub_rating'
+            'data','flag_user','total','sub_rating','jobs'
         ));
     }
 
