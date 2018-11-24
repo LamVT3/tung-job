@@ -57,7 +57,7 @@
             </h2>
             <div class="row">
                 @foreach($featured_jobs as $item)
-                <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="featured-item">
                         <div class="featured-wrap">
                             <div class="featured-inner">
