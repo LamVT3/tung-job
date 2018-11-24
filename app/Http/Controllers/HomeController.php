@@ -29,7 +29,7 @@ class HomeController extends Controller
         $featured_jobs = Job::where('is_featured', '1')
             ->where('is_deleted', '<>', '1')
             ->orderBy('created_at', 'desc')
-            ->take(5)
+            ->take(4)
             ->get();
 
         $hot_jobs = Job::where('is_deleted', '<>', '1')
